@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alle Berufe – FreizeitKarriere</title>
+  <meta name="description" content="Entdecke alle Berufsbilder der Freizeitbranche. Sortiert nach Bereich, Level und Skills.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">🎡</div>
+      Freizeit<span>Karriere</span>
+    </a>
+    <div class="nav-links">
+      <a href="berufe.html" class="active">Berufe</a>
+      <a href="ausbildung.html">Ausbildung</a>
+      <a href="geschichten.html">Geschichten</a>
+      <a href="branche.html">Branche</a>
+      <a href="jobboerse.html" class="nav-cta">Jobbörse</a>
+    </div>
+    <button class="nav-mobile-toggle" aria-label="Menü öffnen">☰</button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <button class="nav-mobile-close">✕</button>
+  <a href="berufe.html">Berufe</a>
+  <a href="ausbildung.html">Ausbildung</a>
+  <a href="geschichten.html">Geschichten</a>
+  <a href="branche.html">Branche</a>
+  <a href="jobboerse.html">Jobbörse</a>
+</div>
+
+<!-- Page Hero -->
+<section style="background:linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);padding:var(--space-2xl) 0">
+  <div class="container">
+    <div class="breadcrumb" style="color:rgba(255,255,255,0.5)">
+      <a href="index.html" style="color:rgba(255,255,255,0.6)">Start</a>
+      <span class="breadcrumb-sep">/</span>
+      <span style="color:#fff">Berufe</span>
+    </div>
+    <h1 style="color:#fff">Berufe der Freizeitbranche</h1>
+    <p class="lead" style="color:rgba(255,255,255,0.75);margin-top:var(--space-sm)">
+      42 Berufsbilder – sortiert, erklärt, ehrlich dargestellt. Von Einstieg bis Führung.
+    </p>
+    <!-- Search -->
+    <div style="margin-top:var(--space-lg);max-width:600px">
+      <div style="display:flex;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:var(--r-md);padding:12px 20px;gap:12px;align-items:center">
+        <span style="font-size:1.2rem">🔍</span>
+        <input id="job-search" type="text" placeholder="Beruf suchen, z.B. »Eventmanager«"
+          style="flex:1;background:none;border:none;outline:none;color:#fff;font-size:1rem;font-family:var(--font-sans)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filter + Job Grid -->
+<section class="section">
+  <div class="container">
+    <!-- Filters -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Alle Bereiche</button>
+      <button class="filter-btn" data-filter="parks">🎡 Freizeitparks</button>
+      <button class="filter-btn" data-filter="events">🎪 Events</button>
+      <button class="filter-btn" data-filter="tourismus">✈️ Tourismus</button>
+      <button class="filter-btn" data-filter="sport">⚽ Sport</button>
+      <button class="filter-btn" data-filter="wellness">🧘 Wellness</button>
+      <button class="filter-btn" data-filter="kultur">🎭 Kultur</button>
+      <button class="filter-btn" data-filter="gastronomie">🍽️ Gastronomie</button>
+      <button class="filter-btn" data-filter="natur">🌲 Natur</button>
+    </div>
+
+    <!-- Level Filter -->
+    <div class="flex gap-sm" style="margin-bottom:var(--space-xl);flex-wrap:wrap">
+      <span style="font-size:0.88rem;color:var(--text-light);padding:8px 0;margin-right:4px">Level:</span>
+      <button class="filter-btn active" style="font-size:0.82rem;padding:7px 16px" data-filter="all" id="level-all">Alle</button>
+      <button class="filter-btn" style="font-size:0.82rem;padding:7px 16px" id="level-entry">◎ Einstieg</button>
+      <button class="filter-btn" style="font-size:0.82rem;padding:7px 16px" id="level-mid">⬡ Mid-Level</button>
+      <button class="filter-btn" style="font-size:0.82rem;padding:7px 16px" id="level-senior">★ Senior</button>
+    </div>
+
+    <!-- Jobs Grid -->
+    <div class="grid-auto" id="jobs-grid">
+
+      <!-- MANAGEMENT & FÜHRUNG -->
+
+      <a href="jobs/freizeitpark-manager.html" class="job-card" data-category="parks">
+        <div class="job-card-visual visual-park">
+          <div class="job-card-icon">🎡</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-senior">★ Senior</span>
+            <span class="tag tag-navy">Parks</span>
+          </div>
+          <div class="job-card-title">Freizeitpark-Manager/in</div>
+          <p class="job-card-desc">Gesamtverantwortung für Betrieb, Personal und Gästeerlebnis eines Freizeitparks.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">55–90k € · Senior</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="jobs/eventmanager.html" class="job-card" data-category="events">
+        <div class="job-card-visual visual-event">
+          <div class="job-card-icon">🎪</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-mid">⬡ Mid-Level</span>
+            <span class="tag tag-coral">Events</span>
+          </div>
+          <div class="job-card-title">Eventmanager/in</div>
+          <p class="job-card-desc">Konzeption, Planung und Durchführung von Veranstaltungen aller Art und Größe.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">35–60k € · Mid</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="jobs/hotelmanager.html" class="job-card" data-category="tourismus">
+        <div class="job-card-visual visual-hotel">
+          <div class="job-card-icon">🏨</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-senior">★ Senior</span>
+            <span class="tag tag-navy">Tourismus</span>
+          </div>
+          <div class="job-card-title">Hotelmanager/in</div>
+          <p class="job-card-desc">Führung eines Hotels von Boutique bis 5-Sterne – von Operations bis Guest Experience.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">50–85k € · Senior</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="jobs/kulturmanager.html" class="job-card" data-category="kultur">
+        <div class="job-card-visual visual-culture">
+          <div class="job-card-icon">🎭</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-mid">⬡ Mid-Level</span>
+            <span class="tag tag-coral">Kultur</span>
+          </div>
+          <div class="job-card-title">Kulturmanager/in</div>
+          <p class="job-card-desc">Veranstaltungen, Ausstellungen und Kulturprojekte planen, finanzieren und organisieren.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">32–52k € · Mid</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="jobs/spa-director.html" class="job-card" data-category="wellness">
+        <div class="job-card-visual visual-wellness">
+          <div class="job-card-icon">💆</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-senior">★ Senior</span>
+            <span class="tag tag-teal">Wellness</span>
+          </div>
+          <div class="job-card-title">Spa Director</div>
+          <p class="job-card-desc">Strategische Leitung eines Spa-Bereichs in Luxushotels und Resorts. Konzept, Personal, Revenue.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">55–80k € · Senior</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="jobs/tourismusmanager.html" class="job-card" data-category="tourismus">
+        <div class="job-card-visual visual-tourism">
+          <div class="job-card-icon">🗺️</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-senior">★ Senior</span>
+            <span class="tag tag-navy">Tourismus</span>
+          </div>
+          <div class="job-card-title">Tourismusmanager/in</div>
+          <p class="job-card-desc">Entwicklung und Vermarktung touristischer Destinationen und Angebote auf regionaler Ebene.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">42–68k € · Senior</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ANIMATION & UNTERHALTUNG -->
+
+      <a href="jobs/animateur.html" class="job-card" data-category="parks">
+        <div class="job-card-visual visual-kids">
+          <div class="job-card-icon">🎉</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-entry">◎ Einstieg</span>
+            <span class="tag tag-teal">Animation</span>
+          </div>
+          <div class="job-card-title">Animateur/Animateurin</div>
+          <p class="job-card-desc">Unterhaltung und Aktivierung von Gästen in Hotels, Clubs, Parks. Viel Bühne, viel Leben.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">22–34k € · Einstieg</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="jobs/entertainment-director.html" class="job-card" data-category="parks">
+        <div class="job-card-visual visual-show">
+          <div class="job-card-icon">🌟</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-senior">★ Senior</span>
+            <span class="tag tag-coral">Animation</span>
+          </div>
+          <div class="job-card-title">Entertainment Director</div>
+          <p class="job-card-desc">Gesamtverantwortung für das Unterhaltungsprogramm: Shows, Charaktere, Events im Park.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">50–75k € · Senior</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="jobs/veranstaltungstechniker.html" class="job-card" data-category="events">
+        <div class="job-card-visual visual-manage">
+          <div class="job-card-icon">🎬</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-mid">⬡ Mid-Level</span>
+            <span class="tag tag-coral">Events</span>
+          </div>
+          <div class="job-card-title">Veranstaltungstechniker/in</div>
+          <p class="job-card-desc">Licht, Ton, Bühne. Technische Umsetzung von Events und Shows. Handwerk trifft Showbusiness.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">30–50k € · Mid</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- TOURISMUS & REISE -->
+
+      <a href="jobs/reiseleiter.html" class="job-card" data-category="tourismus">
+        <div class="job-card-visual visual-tourism">
+          <div class="job-card-icon">✈️</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-entry">◎ Einstieg</span>
+            <span class="tag tag-navy">Tourismus</span>
+          </div>
+          <div class="job-card-title">Reiseleiter/in</div>
+          <p class="job-card-desc">Reisegruppen begleiten, Orte erklären, Probleme lösen. Die Welt als Büro.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">24–40k € · Einstieg</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="jobs/guest-experience-manager.html" class="job-card" data-category="tourismus">
+        <div class="job-card-visual visual-hotel">
+          <div class="job-card-icon">⭐</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-mid">⬡ Mid-Level</span>
+            <span class="tag tag-navy">Tourismus</span>
+          </div>
+          <div class="job-card-title">Guest Experience Manager</div>
+          <p class="job-card-desc">Gästeerlebnis als Disziplin. Jeden Kontaktpunkt optimieren, um WOW-Momente zu schaffen.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">38–58k € · Mid</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- SPORT -->
+
+      <a href="jobs/personal-trainer.html" class="job-card" data-category="sport">
+        <div class="job-card-visual visual-sport">
+          <div class="job-card-icon">💪</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-entry">◎ Einstieg</span>
+            <span class="tag tag-coral">Sport</span>
+          </div>
+          <div class="job-card-title">Personal Trainer</div>
+          <p class="job-card-desc">Individuelle Trainingsbegleitung für Kunden in Studios, Outdooranlagen oder online.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">24–55k € · variabel</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="jobs/sportanlagenleiter.html" class="job-card" data-category="sport">
+        <div class="job-card-visual visual-sport">
+          <div class="job-card-icon">🏟️</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-mid">⬡ Mid-Level</span>
+            <span class="tag tag-coral">Sport</span>
+          </div>
+          <div class="job-card-title">Sportanlagenleiter/in</div>
+          <p class="job-card-desc">Leitung von Hallen, Stadien, Freibädern oder Fitnesszentren. Betrieb, Personal, Sicherheit.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">32–52k € · Mid</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- WELLNESS -->
+
+      <a href="jobs/wellness-manager.html" class="job-card" data-category="wellness">
+        <div class="job-card-visual visual-wellness">
+          <div class="job-card-icon">🧘</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-mid">⬡ Mid-Level</span>
+            <span class="tag tag-teal">Wellness</span>
+          </div>
+          <div class="job-card-title">Wellness-Manager/in</div>
+          <p class="job-card-desc">Konzeptentwicklung und Betrieb von Wellness-Bereichen in Resorts, Hotels und Bädern.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">38–58k € · Mid</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- GASTRONOMIE -->
+
+      <a href="jobs/fb-manager.html" class="job-card" data-category="gastronomie">
+        <div class="job-card-visual visual-food">
+          <div class="job-card-icon">🍽️</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-mid">⬡ Mid-Level</span>
+            <span class="tag tag-gold">Gastronomie</span>
+          </div>
+          <div class="job-card-title">F&B Manager</div>
+          <p class="job-card-desc">Food & Beverage-Verantwortung in Hotels, Parks und großen Veranstaltungsstätten.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">36–58k € · Mid</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- NATUR & PÄDAGOGIK -->
+
+      <a href="jobs/erlebnispaedagoge.html" class="job-card" data-category="natur">
+        <div class="job-card-visual visual-nature">
+          <div class="job-card-icon">🌲</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-entry">◎ Einstieg</span>
+            <span class="tag tag-green">Pädagogik</span>
+          </div>
+          <div class="job-card-title">Erlebnispädagoge/in</div>
+          <p class="job-card-desc">Lernen durch Erleben in Natur, Kletterparks und Schullandheimen. Pädagogik trifft Abenteuer.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">26–42k € · Einstieg</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="jobs/naturführer.html" class="job-card" data-category="natur">
+        <div class="job-card-visual visual-nature">
+          <div class="job-card-icon">🦅</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-entry">◎ Einstieg</span>
+            <span class="tag tag-green">Natur</span>
+          </div>
+          <div class="job-card-title">Naturführer/in</div>
+          <p class="job-card-desc">Natur erklären und erlebbar machen. In Nationalparks, Naturreservaten und Schulen.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">22–36k € · Einstieg</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="jobs/marketing-tourismus.html" class="job-card" data-category="tourismus">
+        <div class="job-card-visual visual-tourism">
+          <div class="job-card-icon">📱</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-mid">⬡ Mid-Level</span>
+            <span class="tag tag-navy">Marketing</span>
+          </div>
+          <div class="job-card-title">Marketing-Manager Tourismus</div>
+          <p class="job-card-desc">Destinations- und Produktmarketing für Tourismusbetriebe. Digital, Social, Content.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.82rem;color:var(--text-light)">34–55k € · Mid</span>
+            <span style="color:var(--teal);font-size:0.85rem;font-weight:600">Details →</span>
+          </div>
+        </div>
+      </a>
+
+    </div><!-- /grid -->
+
+    <!-- Load More -->
+    <div class="text-center" style="margin-top:var(--space-xl)">
+      <p style="color:var(--text-light);margin-bottom:var(--space-md)">Zeige 18 von 42 Berufen</p>
+      <button class="btn btn-secondary" onclick="this.previousElementSibling.textContent='Alle 42 Berufe geladen.';this.style.display='none'">
+        Alle Berufe anzeigen
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Deinen Traumberuf noch nicht gefunden?</h2>
+      <p>Sprich mit unseren Karriereberatern oder entdecke verwandte Berufe und Quereinstiegsmöglichkeiten.</p>
+      <div class="flex gap-md" style="justify-content:center;flex-wrap:wrap">
+        <a href="ausbildung.html" class="btn btn-white btn-lg">Ausbildungswege</a>
+        <a href="geschichten.html" class="btn btn-ghost btn-lg">Geschichten lesen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:var(--space-md)">
+          <div class="nav-logo-icon">🎡</div>
+          Freizeit<span>Karriere</span>
+        </a>
+        <p>Das Karriereportal für die deutsche Freizeitbranche.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Berufe</h4>
+        <ul>
+          <li><a href="berufe.html?cat=parks">Freizeitparks</a></li>
+          <li><a href="berufe.html?cat=events">Events</a></li>
+          <li><a href="berufe.html?cat=tourismus">Tourismus</a></li>
+          <li><a href="berufe.html?cat=sport">Sport</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Karriere</h4>
+        <ul>
+          <li><a href="ausbildung.html">Ausbildung</a></li>
+          <li><a href="jobboerse.html">Jobbörse</a></li>
+          <li><a href="geschichten.html">Geschichten</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="#">Über uns</a></li>
+          <li><a href="#">Kontakt</a></li>
+          <li><a href="#">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 FreizeitKarriere</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

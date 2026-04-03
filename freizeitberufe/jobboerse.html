@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jobbörse – FreizeitKarriere</title>
+  <meta name="description" content="Aktuelle Jobs in der Freizeitbranche: Freizeitparks, Events, Tourismus, Wellness, Sport und mehr.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">🎡</div>
+      Freizeit<span>Karriere</span>
+    </a>
+    <div class="nav-links">
+      <a href="berufe.html">Berufe</a>
+      <a href="ausbildung.html">Ausbildung</a>
+      <a href="geschichten.html">Geschichten</a>
+      <a href="branche.html">Branche</a>
+      <a href="jobboerse.html" class="nav-cta active">Jobbörse</a>
+    </div>
+    <button class="nav-mobile-toggle">☰</button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <button class="nav-mobile-close">✕</button>
+  <a href="berufe.html">Berufe</a>
+  <a href="ausbildung.html">Ausbildung</a>
+  <a href="geschichten.html">Geschichten</a>
+  <a href="branche.html">Branche</a>
+  <a href="jobboerse.html">Jobbörse</a>
+</div>
+
+<!-- Hero -->
+<section style="background:linear-gradient(135deg,var(--coral) 0%,var(--gold) 100%);padding:var(--space-xl) 0;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(255,255,255,0.12),transparent 55%)"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <h1 style="color:#fff;margin-bottom:var(--space-sm)">Jobbörse Freizeitbranche</h1>
+    <p class="lead" style="color:rgba(255,255,255,0.88);max-width:55ch;margin-bottom:var(--space-lg)">
+      Aktuelle Stellen in Freizeitparks, Events, Tourismus, Sport, Wellness und mehr.
+    </p>
+    <!-- Main Search -->
+    <div style="background:#fff;border-radius:var(--r-md);padding:20px;display:grid;grid-template-columns:1fr 1fr auto;gap:12px;box-shadow:0 8px 32px rgba(0,0,0,0.15);max-width:800px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:10px;border-right:1px solid var(--border);padding-right:12px">
+        <span style="color:var(--text-light);font-size:1.1rem">🔍</span>
+        <input id="job-search" type="text" placeholder="Jobtitel oder Stichwort"
+          style="border:none;outline:none;font-family:var(--font-sans);font-size:0.95rem;width:100%;color:var(--text-dark)">
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="color:var(--text-light);font-size:1.1rem">📍</span>
+        <input type="text" placeholder="Ort oder Region"
+          style="border:none;outline:none;font-family:var(--font-sans);font-size:0.95rem;width:100%;color:var(--text-dark)">
+      </div>
+      <button class="btn btn-primary" onclick="return false">Suchen</button>
+    </div>
+    <!-- Quick Stats -->
+    <div style="display:flex;gap:var(--space-lg);margin-top:var(--space-md);flex-wrap:wrap">
+      <span style="color:rgba(255,255,255,0.85);font-size:0.9rem">✅ <strong>328</strong> aktuelle Stellen</span>
+      <span style="color:rgba(255,255,255,0.85);font-size:0.9rem">🆕 <strong>24</strong> neu diese Woche</span>
+      <span style="color:rgba(255,255,255,0.85);font-size:0.9rem">🏢 <strong>86</strong> Unternehmen</span>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content: Sidebar + Jobs -->
+<section class="section">
+  <div class="container" style="display:grid;grid-template-columns:260px 1fr;gap:var(--space-xl);align-items:start">
+
+    <!-- Sidebar Filters -->
+    <div style="position:sticky;top:80px">
+      <div class="card" style="border:1px solid var(--border);margin-bottom:var(--space-md)">
+        <div class="card-body">
+          <h4 style="margin-bottom:var(--space-md);font-family:var(--font-sans)">Filter</h4>
+
+          <div style="margin-bottom:var(--space-md)">
+            <div style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-light);margin-bottom:10px">Bereich</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" checked style="accent-color:var(--coral)"> Alle Bereiche
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> 🎡 Freizeitparks (42)
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> 🎪 Events (68)
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> ✈️ Tourismus (85)
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> ⚽ Sport (54)
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> 🧘 Wellness (32)
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> 🎭 Kultur (28)
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> 🍽️ Gastronomie (19)
+              </label>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid var(--border);padding-top:var(--space-md);margin-bottom:var(--space-md)">
+            <div style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-light);margin-bottom:10px">Level</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> ◎ Einstieg (98)
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> ⬡ Mid-Level (145)
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> ★ Senior (62)
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> 🎓 Ausbildung (23)
+              </label>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid var(--border);padding-top:var(--space-md);margin-bottom:var(--space-md)">
+            <div style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-light);margin-bottom:10px">Arbeitsmodell</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> Vollzeit
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> Teilzeit
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> Freelance
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem">
+                <input type="checkbox" style="accent-color:var(--coral)"> Saisonstelle
+              </label>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid var(--border);padding-top:var(--space-md)">
+            <div style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-light);margin-bottom:10px">Region</div>
+            <select style="width:100%;padding:10px 14px;border-radius:var(--r-sm);border:1.5px solid var(--border);font-family:var(--font-sans);font-size:0.9rem;color:var(--text-dark);background:var(--bg-card);outline:none">
+              <option>Alle Regionen</option>
+              <option>Bayern</option>
+              <option>Baden-Württemberg</option>
+              <option>NRW</option>
+              <option>Hessen</option>
+              <option>Hamburg</option>
+              <option>Berlin/Brandenburg</option>
+              <option>Sachsen</option>
+              <option>International</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Alert Box -->
+      <div style="background:var(--blue-bg);border-radius:var(--r-md);padding:var(--space-md);border:1px solid rgba(45,125,154,0.2)">
+        <div style="font-size:1.3rem;margin-bottom:8px">🔔</div>
+        <h4 style="font-family:var(--font-sans);font-size:0.9rem;color:var(--navy);margin-bottom:6px">Job-Alarm einrichten</h4>
+        <p style="font-size:0.82rem;color:var(--text-light);max-width:none;margin-bottom:var(--space-sm)">Erhalte passende Jobs direkt per E-Mail.</p>
+        <button class="btn btn-secondary btn-sm" style="width:100%;justify-content:center">Alert erstellen</button>
+      </div>
+    </div>
+
+    <!-- Job Listings -->
+    <div>
+      <!-- Sort Row -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-md);flex-wrap:wrap;gap:10px">
+        <span style="font-size:0.9rem;color:var(--text-light)">328 Stellen gefunden</span>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:0.85rem;color:var(--text-light)">Sortieren:</span>
+          <select style="padding:8px 12px;border-radius:var(--r-sm);border:1.5px solid var(--border);font-family:var(--font-sans);font-size:0.85rem;color:var(--text-dark);background:var(--bg-card);outline:none">
+            <option>Neueste zuerst</option>
+            <option>Relevanz</option>
+            <option>Gehalt aufsteigend</option>
+            <option>Gehalt absteigend</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Featured Jobs -->
+      <div style="background:var(--orange-bg);border-radius:var(--r-md);padding:12px var(--space-md);margin-bottom:var(--space-md);border:1px solid rgba(244,169,64,0.3)">
+        <span style="font-size:0.82rem;font-weight:600;color:#C07A10">⭐ Gesponserte Stellenanzeigen</span>
+      </div>
+
+      <!-- Job 1: Featured -->
+      <div class="job-listing" style="border-color:var(--gold);position:relative" data-category="events">
+        <div style="position:absolute;top:12px;right:12px;background:var(--orange-bg);color:#C07A10;font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:100px">★ Top</div>
+        <div class="job-listing-logo">🎪</div>
+        <div class="job-listing-body">
+          <div class="job-listing-title">Senior Eventmanager/in (m/w/d)</div>
+          <div class="job-listing-company">Moments GmbH · München</div>
+          <div class="job-listing-tags">
+            <span class="tag tag-coral">Events</span>
+            <span class="tag tag-navy">Vollzeit</span>
+            <span class="tag tag-gold">Senior</span>
+            <span class="tag" style="background:var(--green-bg);color:var(--green)">45–65k €</span>
+          </div>
+        </div>
+        <div class="job-listing-date">
+          <div style="margin-bottom:8px">Vor 2 Tagen</div>
+          <a href="#" class="btn btn-primary btn-sm">Bewerben</a>
+        </div>
+      </div>
+
+      <!-- Job 2: Featured -->
+      <div class="job-listing" style="border-color:var(--gold);position:relative" data-category="parks">
+        <div style="position:absolute;top:12px;right:12px;background:var(--orange-bg);color:#C07A10;font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:100px">★ Top</div>
+        <div class="job-listing-logo">🎡</div>
+        <div class="job-listing-body">
+          <div class="job-listing-title">Abteilungsleiter/in Entertainment (m/w/d)</div>
+          <div class="job-listing-company">Europa-Park GmbH · Rust/Baden</div>
+          <div class="job-listing-tags">
+            <span class="tag tag-navy">Parks</span>
+            <span class="tag tag-navy">Vollzeit</span>
+            <span class="tag tag-gold">Mid-Level</span>
+            <span class="tag" style="background:var(--green-bg);color:var(--green)">38–52k €</span>
+          </div>
+        </div>
+        <div class="job-listing-date">
+          <div style="margin-bottom:8px">Vor 3 Tagen</div>
+          <a href="#" class="btn btn-primary btn-sm">Bewerben</a>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div style="margin:var(--space-lg) 0;display:flex;align-items:center;gap:var(--space-md)">
+        <div style="flex:1;height:1px;background:var(--border)"></div>
+        <span style="font-size:0.82rem;color:var(--text-light)">Alle Stellen</span>
+        <div style="flex:1;height:1px;background:var(--border)"></div>
+      </div>
+
+      <!-- Regular Listings -->
+      <div class="job-listing" data-category="tourismus">
+        <div class="job-listing-logo">🏨</div>
+        <div class="job-listing-body">
+          <div class="job-listing-title">Guest Experience Manager (m/w/d)</div>
+          <div class="job-listing-company">Kempinski Hotel · Frankfurt</div>
+          <div class="job-listing-tags">
+            <span class="tag tag-navy">Tourismus</span>
+            <span class="tag tag-navy">Vollzeit</span>
+            <span class="tag tag-gold">Mid-Level</span>
+          </div>
+        </div>
+        <div class="job-listing-date">
+          <div style="margin-bottom:8px">Vor 1 Tag</div>
+          <a href="#" class="btn btn-secondary btn-sm">Mehr →</a>
+        </div>
+      </div>
+
+      <div class="job-listing" data-category="wellness">
+        <div class="job-listing-logo">🧘</div>
+        <div class="job-listing-body">
+          <div class="job-listing-title">Wellness-Therapeut/in (m/w/d) · Saisonkraft</div>
+          <div class="job-listing-company">Tegernseer Tal Tourismus · Tegernsee</div>
+          <div class="job-listing-tags">
+            <span class="tag tag-teal">Wellness</span>
+            <span class="tag tag-coral">Saisonstelle</span>
+            <span class="tag tag-green">Einstieg</span>
+          </div>
+        </div>
+        <div class="job-listing-date">
+          <div style="margin-bottom:8px">Heute</div>
+          <a href="#" class="btn btn-secondary btn-sm">Mehr →</a>
+        </div>
+      </div>
+
+      <div class="job-listing" data-category="events">
+        <div class="job-listing-logo">🎬</div>
+        <div class="job-listing-body">
+          <div class="job-listing-title">Veranstaltungstechniker/in – Licht & Ton (m/w/d)</div>
+          <div class="job-listing-company">Stage Entertainment GmbH · Hamburg</div>
+          <div class="job-listing-tags">
+            <span class="tag tag-coral">Events</span>
+            <span class="tag tag-navy">Vollzeit</span>
+            <span class="tag tag-gold">Mid-Level</span>
+          </div>
+        </div>
+        <div class="job-listing-date">
+          <div style="margin-bottom:8px">Vor 2 Tagen</div>
+          <a href="#" class="btn btn-secondary btn-sm">Mehr →</a>
+        </div>
+      </div>
+
+      <div class="job-listing" data-category="sport">
+        <div class="job-listing-logo">⚽</div>
+        <div class="job-listing-body">
+          <div class="job-listing-title">Sportkoordinator/in Fitnesscenter (m/w/d)</div>
+          <div class="job-listing-company">FitX GmbH · Köln</div>
+          <div class="job-listing-tags">
+            <span class="tag tag-coral">Sport</span>
+            <span class="tag tag-navy">Vollzeit</span>
+            <span class="tag tag-green">Einstieg</span>
+          </div>
+        </div>
+        <div class="job-listing-date">
+          <div style="margin-bottom:8px">Vor 4 Tagen</div>
+          <a href="#" class="btn btn-secondary btn-sm">Mehr →</a>
+        </div>
+      </div>
+
+      <div class="job-listing" data-category="parks">
+        <div class="job-listing-logo">🎡</div>
+        <div class="job-listing-body">
+          <div class="job-listing-title">Animateur/in (m/w/d) Sommer-Saison 2025</div>
+          <div class="job-listing-company">CenterParcs · Bispingen</div>
+          <div class="job-listing-tags">
+            <span class="tag tag-navy">Parks</span>
+            <span class="tag tag-coral">Saisonstelle</span>
+            <span class="tag tag-green">Einstieg</span>
+          </div>
+        </div>
+        <div class="job-listing-date">
+          <div style="margin-bottom:8px">Vor 5 Tagen</div>
+          <a href="#" class="btn btn-secondary btn-sm">Mehr →</a>
+        </div>
+      </div>
+
+      <div class="job-listing" data-category="tourismus">
+        <div class="job-listing-logo">✈️</div>
+        <div class="job-listing-body">
+          <div class="job-listing-title">Reiseleiter/in Mittelmeer (m/w/d)</div>
+          <div class="job-listing-company">TUI AG · Remote / Reise</div>
+          <div class="job-listing-tags">
+            <span class="tag tag-navy">Tourismus</span>
+            <span class="tag tag-teal">Freelance</span>
+            <span class="tag tag-green">Einstieg</span>
+          </div>
+        </div>
+        <div class="job-listing-date">
+          <div style="margin-bottom:8px">Vor 1 Woche</div>
+          <a href="#" class="btn btn-secondary btn-sm">Mehr →</a>
+        </div>
+      </div>
+
+      <div class="job-listing" data-category="kultur">
+        <div class="job-listing-logo">🎭</div>
+        <div class="job-listing-body">
+          <div class="job-listing-title">Kulturmanager/in – Ausstellungsorganisation (m/w/d)</div>
+          <div class="job-listing-company">Deutsches Museum · München</div>
+          <div class="job-listing-tags">
+            <span class="tag tag-coral">Kultur</span>
+            <span class="tag tag-navy">Vollzeit</span>
+            <span class="tag tag-gold">Mid-Level</span>
+          </div>
+        </div>
+        <div class="job-listing-date">
+          <div style="margin-bottom:8px">Vor 1 Woche</div>
+          <a href="#" class="btn btn-secondary btn-sm">Mehr →</a>
+        </div>
+      </div>
+
+      <div class="job-listing" data-category="natur">
+        <div class="job-listing-logo">🌲</div>
+        <div class="job-listing-body">
+          <div class="job-listing-title">Erlebnispädagoge/in (m/w/d)</div>
+          <div class="job-listing-company">Bayerische Landschulheime · Lenggries</div>
+          <div class="job-listing-tags">
+            <span class="tag tag-green">Pädagogik</span>
+            <span class="tag tag-navy">Vollzeit</span>
+            <span class="tag tag-green">Einstieg</span>
+          </div>
+        </div>
+        <div class="job-listing-date">
+          <div style="margin-bottom:8px">Vor 1 Woche</div>
+          <a href="#" class="btn btn-secondary btn-sm">Mehr →</a>
+        </div>
+      </div>
+
+      <div class="job-listing" data-category="wellness">
+        <div class="job-listing-logo">💆</div>
+        <div class="job-listing-body">
+          <div class="job-listing-title">Spa Director (m/w/d) – Luxusresort</div>
+          <div class="job-listing-company">Rosewood Hotels & Resorts · Berchtesgaden</div>
+          <div class="job-listing-tags">
+            <span class="tag tag-teal">Wellness</span>
+            <span class="tag tag-navy">Vollzeit</span>
+            <span class="tag tag-navy">Senior</span>
+            <span class="tag" style="background:var(--green-bg);color:var(--green)">70–90k €</span>
+          </div>
+        </div>
+        <div class="job-listing-date">
+          <div style="margin-bottom:8px">Vor 2 Wochen</div>
+          <a href="#" class="btn btn-secondary btn-sm">Mehr →</a>
+        </div>
+      </div>
+
+      <div class="job-listing" data-category="events">
+        <div class="job-listing-logo">🎵</div>
+        <div class="job-listing-body">
+          <div class="job-listing-title">Festival Production Manager (m/w/d)</div>
+          <div class="job-listing-company">DEAG Deutsche Entertainment AG · Berlin</div>
+          <div class="job-listing-tags">
+            <span class="tag tag-coral">Events</span>
+            <span class="tag tag-navy">Vollzeit</span>
+            <span class="tag tag-gold">Senior</span>
+          </div>
+        </div>
+        <div class="job-listing-date">
+          <div style="margin-bottom:8px">Vor 2 Wochen</div>
+          <a href="#" class="btn btn-secondary btn-sm">Mehr →</a>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div style="display:flex;justify-content:center;gap:8px;margin-top:var(--space-xl)">
+        <button style="width:40px;height:40px;border-radius:var(--r-sm);border:1.5px solid var(--coral);background:var(--coral);color:#fff;font-weight:600;cursor:pointer">1</button>
+        <button style="width:40px;height:40px;border-radius:var(--r-sm);border:1.5px solid var(--border);background:var(--bg-card);color:var(--text-dark);cursor:pointer">2</button>
+        <button style="width:40px;height:40px;border-radius:var(--r-sm);border:1.5px solid var(--border);background:var(--bg-card);color:var(--text-dark);cursor:pointer">3</button>
+        <span style="display:flex;align-items:center;color:var(--text-light);padding:0 4px">...</span>
+        <button style="width:40px;height:40px;border-radius:var(--r-sm);border:1.5px solid var(--border);background:var(--bg-card);color:var(--text-dark);cursor:pointer">33</button>
+        <button style="padding:0 16px;height:40px;border-radius:var(--r-sm);border:1.5px solid var(--border);background:var(--bg-card);color:var(--text-dark);cursor:pointer">Weiter →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Employer CTA -->
+<section class="section-sm bg-white">
+  <div class="container">
+    <div style="background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:var(--r-xl);padding:var(--space-xl);display:grid;grid-template-columns:1fr auto;gap:var(--space-lg);align-items:center" class="reveal">
+      <div>
+        <h3 style="color:#fff;margin-bottom:var(--space-sm)">Du bist Arbeitgeber in der Freizeitbranche?</h3>
+        <p style="color:rgba(255,255,255,0.72);max-width:55ch">
+          Schalte deine Stellenanzeigen auf FreizeitKarriere und erreiche Fachkräfte,
+          die wirklich für die Branche brennen. Ab 49 € / Anzeige.
+        </p>
+      </div>
+      <div style="flex-shrink:0">
+        <a href="#" class="btn btn-primary btn-lg">Stelle inserieren</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:var(--space-md)"><div class="nav-logo-icon">🎡</div>Freizeit<span>Karriere</span></a>
+        <p>Das Karriereportal für die deutsche Freizeitbranche.</p>
+      </div>
+      <div class="footer-col"><h4>Berufe</h4><ul><li><a href="berufe.html">Alle Berufe</a></li><li><a href="berufe.html?cat=events">Events</a></li></ul></div>
+      <div class="footer-col"><h4>Karriere</h4><ul><li><a href="ausbildung.html">Ausbildung</a></li><li><a href="geschichten.html">Geschichten</a></li></ul></div>
+      <div class="footer-col"><h4>Arbeitgeber</h4><ul><li><a href="#">Stelle inserieren</a></li><li><a href="#">Pakete & Preise</a></li><li><a href="#">Arbeitgeber-Login</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 FreizeitKarriere</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreizeitKarriere – Berufe & Jobs in der Freizeitbranche</title>
+  <meta name="description" content="Entdecke alle Berufe und Karrierewege in der Freizeitbranche. Freizeitparks, Events, Tourismus, Wellness, Sport und mehr.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">🎡</div>
+      Freizeit<span>Karriere</span>
+    </a>
+    <div class="nav-links">
+      <a href="berufe.html">Berufe</a>
+      <a href="ausbildung.html">Ausbildung</a>
+      <a href="geschichten.html">Geschichten</a>
+      <a href="branche.html">Branche</a>
+      <a href="jobboerse.html" class="nav-cta">Jobbörse</a>
+    </div>
+    <button class="nav-mobile-toggle" aria-label="Menü öffnen">☰</button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile">
+  <button class="nav-mobile-close" aria-label="Menü schließen">✕</button>
+  <a href="berufe.html">Berufe</a>
+  <a href="ausbildung.html">Ausbildung</a>
+  <a href="geschichten.html">Geschichten</a>
+  <a href="branche.html">Branche</a>
+  <a href="jobboerse.html">Jobbörse</a>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-shapes">
+    <div class="hero-shape hero-shape-1"></div>
+    <div class="hero-shape hero-shape-2"></div>
+    <div class="hero-shape hero-shape-3"></div>
+  </div>
+  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Deutschlands Portal für Freizeitberufe
+      </div>
+      <h1>Deine Karriere.<br>Deine <span style="color:var(--gold)">Leidenschaft.</span></h1>
+      <p class="lead">
+        Entdecke über 40 Berufsbilder in der Freizeitbranche – von Freizeitpark-Management
+        bis Erlebnispädagogik. Finde deinen Weg in eine Branche, die Menschen glücklich macht.
+      </p>
+      <div class="flex gap-md" style="flex-wrap:wrap">
+        <a href="berufe.html" class="btn btn-primary btn-lg">
+          <span>🔍</span> Berufe entdecken
+        </a>
+        <a href="ausbildung.html" class="btn btn-ghost btn-lg">
+          Ausbildungswege
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="hero-stat-num" data-count="42" data-suffix="+">0</span>
+          <span class="hero-stat-label">Berufsbilder</span>
+        </div>
+        <div>
+          <span class="hero-stat-num" data-count="280000" data-suffix="">0</span>
+          <span class="hero-stat-label">Jobs in DE</span>
+        </div>
+        <div>
+          <span class="hero-stat-num" data-count="8" data-suffix=" Mrd.">0</span>
+          <span class="hero-stat-label">€ Branchenumsatz</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image-col">
+      <!-- SVG Illustration: Freizeitwelt -->
+      <svg viewBox="0 0 520 480" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:520px;filter:drop-shadow(0 20px 60px rgba(0,0,0,0.3))">
+        <!-- Background Circle -->
+        <circle cx="260" cy="240" r="220" fill="rgba(255,255,255,0.05)"/>
+        <circle cx="260" cy="240" r="190" fill="rgba(255,255,255,0.04)"/>
+
+        <!-- Ferris Wheel -->
+        <circle cx="260" cy="200" r="90" stroke="rgba(244,169,64,0.6)" stroke-width="3" fill="none"/>
+        <circle cx="260" cy="200" r="12" fill="var(--gold)"/>
+        <!-- Spokes -->
+        <line x1="260" y1="200" x2="260" y2="110" stroke="rgba(244,169,64,0.5)" stroke-width="2"/>
+        <line x1="260" y1="200" x2="260" y2="290" stroke="rgba(244,169,64,0.5)" stroke-width="2"/>
+        <line x1="170" y1="200" x2="350" y2="200" stroke="rgba(244,169,64,0.5)" stroke-width="2"/>
+        <line x1="196" y1="136" x2="324" y2="264" stroke="rgba(244,169,64,0.5)" stroke-width="2"/>
+        <line x1="324" y1="136" x2="196" y2="264" stroke="rgba(244,169,64,0.5)" stroke-width="2"/>
+        <!-- Gondolas -->
+        <rect x="248" y="98" width="24" height="20" rx="4" fill="var(--coral)" opacity="0.9"/>
+        <rect x="248" y="278" width="24" height="20" rx="4" fill="var(--teal)" opacity="0.9"/>
+        <rect x="158" y="188" width="24" height="20" rx="4" fill="var(--gold)" opacity="0.9"/>
+        <rect x="338" y="188" width="24" height="20" rx="4" fill="#AB47BC" opacity="0.9"/>
+        <rect x="183" y="122" width="22" height="18" rx="4" fill="#27A96A" opacity="0.9"/>
+        <rect x="316" y="122" width="22" height="18" rx="4" fill="var(--coral-light)" opacity="0.9"/>
+        <!-- Support -->
+        <line x1="260" y1="290" x2="220" y2="370" stroke="rgba(255,255,255,0.3)" stroke-width="4"/>
+        <line x1="260" y1="290" x2="300" y2="370" stroke="rgba(255,255,255,0.3)" stroke-width="4"/>
+        <rect x="200" y="368" width="120" height="10" rx="5" fill="rgba(255,255,255,0.25)"/>
+
+        <!-- Stars -->
+        <circle cx="60" cy="60" r="3" fill="rgba(244,169,64,0.7)"/>
+        <circle cx="100" cy="40" r="2" fill="rgba(255,255,255,0.5)"/>
+        <circle cx="430" cy="80" r="3" fill="rgba(244,169,64,0.6)"/>
+        <circle cx="460" cy="50" r="2" fill="rgba(255,255,255,0.4)"/>
+        <circle cx="80" cy="380" r="2.5" fill="rgba(255,255,255,0.4)"/>
+        <circle cx="450" cy="360" r="2" fill="rgba(244,169,64,0.5)"/>
+
+        <!-- People Silhouettes -->
+        <circle cx="160" cy="400" r="12" fill="rgba(255,255,255,0.2)"/>
+        <rect x="153" y="412" width="14" height="20" rx="4" fill="rgba(255,255,255,0.15)"/>
+
+        <circle cx="200" cy="395" r="12" fill="rgba(244,169,64,0.3)"/>
+        <rect x="193" y="407" width="14" height="22" rx="4" fill="rgba(244,169,64,0.2)"/>
+
+        <circle cx="320" cy="398" r="12" fill="rgba(232,101,74,0.3)"/>
+        <rect x="313" y="410" width="14" height="20" rx="4" fill="rgba(232,101,74,0.2)"/>
+
+        <circle cx="360" cy="402" r="12" fill="rgba(255,255,255,0.2)"/>
+        <rect x="353" y="414" width="14" height="20" rx="4" fill="rgba(255,255,255,0.15)"/>
+
+        <!-- Ground -->
+        <ellipse cx="260" cy="435" rx="200" ry="12" fill="rgba(255,255,255,0.06)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- Industry Categories -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-header center">
+      <span class="label">Bereiche der Freizeitbranche</span>
+      <h2>Wo möchtest du arbeiten?</h2>
+      <p>Die Freizeitbranche ist vielfältig – entdecke alle Bereiche und finde deinen Platz.</p>
+    </div>
+    <div class="grid-4 stagger-children">
+      <a href="berufe.html?cat=parks" class="card" style="padding:var(--space-lg);text-align:center;border:1px solid var(--border)">
+        <div style="font-size:2.5rem;margin-bottom:12px">🎡</div>
+        <h4 style="color:var(--navy)">Freizeitparks</h4>
+        <p style="font-size:0.85rem;margin-top:6px;max-width:none">Parks, Zoos & Erlebniswelten</p>
+      </a>
+      <a href="berufe.html?cat=events" class="card" style="padding:var(--space-lg);text-align:center;border:1px solid var(--border)">
+        <div style="font-size:2.5rem;margin-bottom:12px">🎪</div>
+        <h4 style="color:var(--navy)">Events & Shows</h4>
+        <p style="font-size:0.85rem;margin-top:6px;max-width:none">Veranstaltungen & Entertainment</p>
+      </a>
+      <a href="berufe.html?cat=tourismus" class="card" style="padding:var(--space-lg);text-align:center;border:1px solid var(--border)">
+        <div style="font-size:2.5rem;margin-bottom:12px">✈️</div>
+        <h4 style="color:var(--navy)">Tourismus & Reise</h4>
+        <p style="font-size:0.85rem;margin-top:6px;max-width:none">Hotels, Reisen & Destinationen</p>
+      </a>
+      <a href="berufe.html?cat=sport" class="card" style="padding:var(--space-lg);text-align:center;border:1px solid var(--border)">
+        <div style="font-size:2.5rem;margin-bottom:12px">⚽</div>
+        <h4 style="color:var(--navy)">Sport & Fitness</h4>
+        <p style="font-size:0.85rem;margin-top:6px;max-width:none">Sportstätten & Fitnessanlagen</p>
+      </a>
+      <a href="berufe.html?cat=wellness" class="card" style="padding:var(--space-lg);text-align:center;border:1px solid var(--border)">
+        <div style="font-size:2.5rem;margin-bottom:12px">🧘</div>
+        <h4 style="color:var(--navy)">Wellness & Spa</h4>
+        <p style="font-size:0.85rem;margin-top:6px;max-width:none">Bäder, Spas & Resorts</p>
+      </a>
+      <a href="berufe.html?cat=kultur" class="card" style="padding:var(--space-lg);text-align:center;border:1px solid var(--border)">
+        <div style="font-size:2.5rem;margin-bottom:12px">🎭</div>
+        <h4 style="color:var(--navy)">Kultur & Bildung</h4>
+        <p style="font-size:0.85rem;margin-top:6px;max-width:none">Museen, Theater & Pädagogik</p>
+      </a>
+      <a href="berufe.html?cat=gastronomie" class="card" style="padding:var(--space-lg);text-align:center;border:1px solid var(--border)">
+        <div style="font-size:2.5rem;margin-bottom:12px">🍽️</div>
+        <h4 style="color:var(--navy)">Gastronomie</h4>
+        <p style="font-size:0.85rem;margin-top:6px;max-width:none">Restaurants & Food Experience</p>
+      </a>
+      <a href="berufe.html?cat=natur" class="card" style="padding:var(--space-lg);text-align:center;border:1px solid var(--border)">
+        <div style="font-size:2.5rem;margin-bottom:12px">🌲</div>
+        <h4 style="color:var(--navy)">Natur & Outdoor</h4>
+        <p style="font-size:0.85rem;margin-top:6px;max-width:none">Natursport & Erlebnisführung</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Jobs -->
+<section class="section">
+  <div class="container">
+    <div class="flex items-center justify-between mb-lg" style="flex-wrap:wrap;gap:1rem">
+      <div>
+        <span class="label">Berufsbilder im Fokus</span>
+        <h2 style="margin-top:8px">Vorgestellte Berufe</h2>
+      </div>
+      <a href="berufe.html" class="btn btn-secondary">Alle 42 Berufe →</a>
+    </div>
+    <div class="grid-3 stagger-children">
+
+      <!-- Job 1 -->
+      <a href="jobs/eventmanager.html" class="job-card">
+        <div class="job-card-visual visual-event">
+          <div class="job-card-icon">🎪</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-mid">⬡ Mid-Level</span>
+            <span class="tag tag-coral">Events</span>
+          </div>
+          <div class="job-card-title">Eventmanager/in</div>
+          <p class="job-card-desc">Plane und organisiere unvergessliche Events – von Firmenfeiern bis Musikfestivals. Kreativität trifft Projektmanagement.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.85rem;color:var(--text-light)">💶 35.000–60.000 € / Jahr</span>
+            <span class="btn btn-primary btn-sm">Mehr →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Job 2 -->
+      <a href="jobs/freizeitpark-manager.html" class="job-card">
+        <div class="job-card-visual visual-park">
+          <div class="job-card-icon">🎡</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-senior">★ Senior</span>
+            <span class="tag tag-navy">Parks</span>
+          </div>
+          <div class="job-card-title">Freizeitpark-Manager/in</div>
+          <p class="job-card-desc">Verantworte den Betrieb ganzer Parks mit Hunderten von Mitarbeitern und Millionen Besuchern jährlich.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.85rem;color:var(--text-light)">💶 55.000–90.000 € / Jahr</span>
+            <span class="btn btn-primary btn-sm">Mehr →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Job 3 -->
+      <a href="jobs/animateur.html" class="job-card">
+        <div class="job-card-visual visual-kids">
+          <div class="job-card-icon">🎭</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-entry">◎ Einstieg</span>
+            <span class="tag tag-teal">Animation</span>
+          </div>
+          <div class="job-card-title">Animateur/Animateurin</div>
+          <p class="job-card-desc">Bring Menschen zum Lachen und Mitmachen. Täglich neue Energie und Abwechslung in Hotels, Clubs und Parks.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.85rem;color:var(--text-light)">💶 22.000–34.000 € / Jahr</span>
+            <span class="btn btn-primary btn-sm">Mehr →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Job 4 -->
+      <a href="jobs/wellness-manager.html" class="job-card">
+        <div class="job-card-visual visual-wellness">
+          <div class="job-card-icon">🧘</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-mid">⬡ Mid-Level</span>
+            <span class="tag tag-teal">Wellness</span>
+          </div>
+          <div class="job-card-title">Wellness-Manager/in</div>
+          <p class="job-card-desc">Schaffe Oasen der Entspannung und Erholung. Konzipiere und leite Wellness-Bereiche in Resorts und Hotels.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.85rem;color:var(--text-light)">💶 38.000–58.000 € / Jahr</span>
+            <span class="btn btn-primary btn-sm">Mehr →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Job 5 -->
+      <a href="jobs/reiseleiter.html" class="job-card">
+        <div class="job-card-visual visual-tourism">
+          <div class="job-card-icon">✈️</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-entry">◎ Einstieg</span>
+            <span class="tag tag-navy">Tourismus</span>
+          </div>
+          <div class="job-card-title">Reiseleiter/in</div>
+          <p class="job-card-desc">Die Welt ist dein Arbeitsplatz. Begleite Gruppen durch Länder und Kulturen und mache Urlaub zum Erlebnis.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.85rem;color:var(--text-light)">💶 24.000–40.000 € / Jahr</span>
+            <span class="btn btn-primary btn-sm">Mehr →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Job 6 -->
+      <a href="jobs/erlebnispaedagoge.html" class="job-card">
+        <div class="job-card-visual visual-nature">
+          <div class="job-card-icon">🌲</div>
+        </div>
+        <div class="job-card-body">
+          <div class="job-card-meta">
+            <span class="level-badge level-entry">◎ Einstieg</span>
+            <span class="tag tag-green">Pädagogik</span>
+          </div>
+          <div class="job-card-title">Erlebnispädagoge/in</div>
+          <p class="job-card-desc">Verbinde Natur, Spiel und Lernen. Erlebnispädagogen arbeiten in Schulen, Camps und Outdoor-Einrichtungen.</p>
+          <div class="job-card-footer">
+            <span style="font-size:0.85rem;color:var(--text-light)">💶 26.000–42.000 € / Jahr</span>
+            <span class="btn btn-primary btn-sm">Mehr →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Industry Statistics -->
+<section class="section bg-navy" style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%)">
+  <div class="container">
+    <div class="section-header center">
+      <h2 style="color:#fff">Die Freizeitbranche in Zahlen</h2>
+      <p style="color:rgba(255,255,255,0.7)">Eine der wachstumsstärksten Branchen Deutschlands</p>
+    </div>
+    <div class="stats-row reveal">
+      <div class="stat-box" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1)">
+        <span class="stat-num" data-count="280" data-suffix="k">0</span>
+        <div class="stat-label" style="color:rgba(255,255,255,0.65)">Beschäftigte in DE</div>
+      </div>
+      <div class="stat-box" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1)">
+        <span class="stat-num" data-count="8" data-suffix=" Mrd.">0</span>
+        <div class="stat-label" style="color:rgba(255,255,255,0.65)">€ Jahresumsatz</div>
+      </div>
+      <div class="stat-box" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1)">
+        <span class="stat-num" data-count="4200" data-suffix="+">0</span>
+        <div class="stat-label" style="color:rgba(255,255,255,0.65)">Betriebe deutschlandweit</div>
+      </div>
+      <div class="stat-box" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1)">
+        <span class="stat-num" data-count="12" data-suffix="%">0</span>
+        <div class="stat-label" style="color:rgba(255,255,255,0.65)">Wachstum p.a.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Personal Stories Teaser -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="flex items-center justify-between mb-lg" style="flex-wrap:wrap;gap:1rem">
+      <div>
+        <span class="label">Menschen hinter den Berufen</span>
+        <h2 style="margin-top:8px">Echte Geschichten</h2>
+      </div>
+      <a href="geschichten.html" class="btn btn-secondary">Alle Geschichten →</a>
+    </div>
+    <div class="grid-3 stagger-children">
+
+      <a href="geschichten.html#lisa" class="story-card">
+        <div class="story-card-visual visual-event">
+          <div class="story-avatar">👩</div>
+        </div>
+        <div class="story-card-body">
+          <div class="story-name">Lisa Mayer</div>
+          <div class="story-role">Eventmanagerin, München</div>
+          <p class="story-quote">Kein Tag ist wie der andere. Ich liebe es, wenn Gäste am Ende strahlen und sagen: ‚Das war unvergesslich.'</p>
+        </div>
+      </a>
+
+      <a href="geschichten.html#marcus" class="story-card">
+        <div class="story-card-visual visual-park">
+          <div class="story-avatar">👨</div>
+        </div>
+        <div class="story-card-body">
+          <div class="story-name">Marcus König</div>
+          <div class="story-role">Freizeitpark-Direktor, Hamburg</div>
+          <p class="story-quote">Als Kind liebte ich Parks. Heute leite ich einen. Manchmal frage ich mich, ob das überhaupt Arbeit ist.</p>
+        </div>
+      </a>
+
+      <a href="geschichten.html#sara" class="story-card">
+        <div class="story-card-visual visual-nature">
+          <div class="story-avatar">👩‍🦱</div>
+        </div>
+        <div class="story-card-body">
+          <div class="story-name">Sara Böhm</div>
+          <div class="story-role">Erlebnispädagogin, Freiburg</div>
+          <p class="story-quote">Wenn ich sehe, wie Jugendliche durch Outdoor-Aktivitäten über sich hinauswachsen – das ist unbezahlbar.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Blog Teaser -->
+<section class="section bg-gradient-warm">
+  <div class="container">
+    <div class="flex items-center justify-between mb-lg" style="flex-wrap:wrap;gap:1rem">
+      <div>
+        <span class="label">Wissen & Trends</span>
+        <h2 style="margin-top:8px">Aktuelles aus der Branche</h2>
+      </div>
+      <a href="branche.html" class="btn btn-secondary">Alle Beiträge →</a>
+    </div>
+    <div class="grid-3 stagger-children">
+
+      <a href="branche.html#future" class="article-card">
+        <div class="article-visual" style="background:linear-gradient(135deg,#1B3A5C,#2D7D9A)">
+          <span>🚀</span>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Trends</div>
+          <div class="article-title">Die Freizeitbranche 2030: Digitalisierung & Experience Economy</div>
+          <p class="article-excerpt">Wie VR, KI und personalisierte Erlebnisse die Branche revolutionieren und welche Jobs entstehen.</p>
+          <div class="article-footer">
+            <span class="article-meta">📅 März 2025 · 6 Min.</span>
+            <span style="color:var(--coral);font-size:0.85rem;font-weight:600">Lesen →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="branche.html#gehalt" class="article-card">
+        <div class="article-visual" style="background:linear-gradient(135deg,#E65100,#FF9800)">
+          <span>💰</span>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Karriere</div>
+          <div class="article-title">Gehaltsreport 2025: Was verdient man in der Freizeitbranche?</div>
+          <p class="article-excerpt">Ein umfassender Überblick über Gehälter in allen Bereichen – von Einstieg bis Management.</p>
+          <div class="article-footer">
+            <span class="article-meta">📅 Feb. 2025 · 8 Min.</span>
+            <span style="color:var(--coral);font-size:0.85rem;font-weight:600">Lesen →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="branche.html#quereinsteiger" class="article-card">
+        <div class="article-visual" style="background:linear-gradient(135deg,#1B5E20,#43A047)">
+          <span>🌱</span>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Quereinstieg</div>
+          <div class="article-title">Quereinsteiger willkommen: So wechselst du in die Freizeitbranche</div>
+          <p class="article-excerpt">Viele Wege führen in die Freizeit. Wir zeigen, welche Qualifikationen zählen und wo man anfangen kann.</p>
+          <div class="article-footer">
+            <span class="article-meta">📅 Jan. 2025 · 5 Min.</span>
+            <span style="color:var(--coral);font-size:0.85rem;font-weight:600">Lesen →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Bereit für deine Karriere in der Freizeitbranche?</h2>
+      <p>Entdecke Ausbildungswege, offene Stellen und Geschichten von Menschen, die ihren Traumjob gefunden haben.</p>
+      <div class="flex gap-md" style="justify-content:center;flex-wrap:wrap">
+        <a href="ausbildung.html" class="btn btn-white btn-lg">Ausbildungswege erkunden</a>
+        <a href="jobboerse.html" class="btn btn-ghost btn-lg">Jobs durchsuchen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:var(--space-md)">
+          <div class="nav-logo-icon">🎡</div>
+          Freizeit<span>Karriere</span>
+        </a>
+        <p>Das Karriereportal für die deutsche Freizeitbranche. Wir machen Berufe sichtbar und Wege klar.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Berufe</h4>
+        <ul>
+          <li><a href="berufe.html?cat=parks">Freizeitparks</a></li>
+          <li><a href="berufe.html?cat=events">Events & Shows</a></li>
+          <li><a href="berufe.html?cat=tourismus">Tourismus</a></li>
+          <li><a href="berufe.html?cat=sport">Sport & Fitness</a></li>
+          <li><a href="berufe.html?cat=wellness">Wellness & Spa</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Karriere</h4>
+        <ul>
+          <li><a href="ausbildung.html">Ausbildungswege</a></li>
+          <li><a href="jobboerse.html">Jobbörse</a></li>
+          <li><a href="geschichten.html">Erfolgsgeschichten</a></li>
+          <li><a href="branche.html">Brancheninfos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="#">Über uns</a></li>
+          <li><a href="#">Für Arbeitgeber</a></li>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">Impressum</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 FreizeitKarriere – Alle Rechte vorbehalten</span>
+      <span style="color:rgba(255,255,255,0.4)">Mit ❤️ für die Freizeitbranche</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
