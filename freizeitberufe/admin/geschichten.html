@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geschichten – FreizeitKarriere Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="sidebar-logo-icon">🎡</div><div class="sidebar-logo-text">Freizeit<span>Karriere</span></div></div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Navigation</div>
+      <a href="dashboard.html"  class="sidebar-link"><div class="link-icon">📊</div>Dashboard</a>
+      <a href="berufe.html"     class="sidebar-link"><div class="link-icon">💼</div>Berufe</a>
+      <a href="geschichten.html"class="sidebar-link active"><div class="link-icon">👥</div>Geschichten</a>
+      <a href="ausbildung.html" class="sidebar-link"><div class="link-icon">🎓</div>Ausbildung</a>
+      <a href="tags.html"       class="sidebar-link"><div class="link-icon">🏷️</div>Tags</a>
+      <div class="sidebar-section" style="margin-top:12px">Website</div>
+      <a href="/" target="_blank" class="sidebar-link"><div class="link-icon">🌐</div>Website öffnen</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user"><div class="sidebar-avatar">S</div><div class="sidebar-user-name">StefanBurian</div></div>
+      <button class="btn-logout btn">🚪 Abmelden</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="breadcrumb">
+          <a href="dashboard.html">Dashboard</a><span class="breadcrumb-sep">/</span><span>Geschichten</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <a href="geschichte-edit.html" class="btn btn-primary btn-sm">+ Neue Geschichte</a>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div>
+          <div class="page-title">👥 Echte Geschichten</div>
+          <div class="page-subtitle">Persönliche Karrieregeschichten aus der Freizeitbranche</div>
+        </div>
+        <a href="geschichte-edit.html" class="btn btn-primary">+ Neue Geschichte</a>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-input-wrap">
+          <span class="icon">🔍</span>
+          <input type="text" id="search" class="search-input" placeholder="Person oder Rolle suchen …">
+        </div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div id="geschichten-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px">
+        <div style="padding:32px;text-align:center;color:var(--text-light);grid-column:1/-1">Lädt …</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/admin.js"></script>
+<script>
+let allGeschichten = [];
+
+function renderCards(data) {
+  const grid = document.getElementById('geschichten-grid');
+  if (!data.length) {
+    grid.innerHTML = `<div style="grid-column:1/-1"><div class="empty-state"><div class="empty-state-icon">👥</div><h3>Noch keine Geschichten</h3><p>Füge die erste Geschichte hinzu.</p></div></div>`;
+    return;
+  }
+  grid.innerHTML = data.map(g => `
+    <div class="card" style="overflow:hidden">
+      <div style="height:90px;background:linear-gradient(135deg,#1B3A5C,#2D7D9A);display:flex;align-items:center;justify-content:space-between;padding:0 16px">
+        <span style="font-size:3rem">${esc(g.emoji||'👤')}</span>
+        ${g.image ? `<img src="${g.image}" style="width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.5)">` : ''}
+      </div>
+      <div class="card-body">
+        <div style="font-size:1rem;font-weight:700;margin-bottom:4px">${esc(g.name)}</div>
+        <div style="font-size:0.82rem;color:var(--teal);font-weight:500;margin-bottom:6px">${esc(g.role||'')} · ${esc(g.location||'')}</div>
+        ${g.quote ? `<p style="font-size:0.82rem;color:var(--text-light);font-style:italic;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">"${esc(g.quote)}"</p>` : ''}
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">
+          ${(g.tags||[]).slice(0,3).map(t => `<span class="tag tag-navy">${esc(t)}</span>`).join('')}
+        </div>
+        <div style="display:flex;gap:8px">
+          <a href="geschichte-edit.html?id=${g.id}" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center">✏️ Bearbeiten</a>
+          <button class="btn btn-danger btn-sm btn-icon" onclick="deleteG('${g.id}','${esc(g.name)}')" title="Löschen">🗑</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+async function deleteG(id, name) {
+  confirm(`Geschichte von „${name}" wirklich löschen?`, async () => {
+    try {
+      await apiDelete(`/geschichten/${id}`);
+      allGeschichten = allGeschichten.filter(g => g.id !== id);
+      renderCards(allGeschichten);
+      toast(`„${name}" wurde gelöscht.`);
+    } catch(e) { toast(e.message, 'error'); }
+  });
+}
+
+(async () => {
+  await checkAuth();
+  initSidebarActive();
+  allGeschichten = await apiGet('/geschichten').catch(() => []);
+  renderCards(allGeschichten);
+
+  document.getElementById('search').addEventListener('input', e => {
+    const q = e.target.value.toLowerCase();
+    renderCards(allGeschichten.filter(g =>
+      g.name?.toLowerCase().includes(q) || g.role?.toLowerCase().includes(q) || g.location?.toLowerCase().includes(q)
+    ));
+  });
+})();
+</script>
+</body>
+</html>

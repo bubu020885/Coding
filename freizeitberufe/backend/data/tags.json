@@ -1,0 +1,19 @@
+[
+  { "id": "parks",       "name": "Freizeitparks",  "color": "navy",   "category": "bereich" },
+  { "id": "events",      "name": "Events & Shows",  "color": "coral",  "category": "bereich" },
+  { "id": "tourismus",   "name": "Tourismus",       "color": "navy",   "category": "bereich" },
+  { "id": "sport",       "name": "Sport & Fitness", "color": "coral",  "category": "bereich" },
+  { "id": "wellness",    "name": "Wellness & Spa",  "color": "teal",   "category": "bereich" },
+  { "id": "kultur",      "name": "Kultur & Bildung","color": "coral",  "category": "bereich" },
+  { "id": "gastronomie", "name": "Gastronomie",     "color": "gold",   "category": "bereich" },
+  { "id": "natur",       "name": "Natur & Outdoor", "color": "green",  "category": "bereich" },
+  { "id": "entry",       "name": "Einstieg",        "color": "green",  "category": "level" },
+  { "id": "mid",         "name": "Mid-Level",       "color": "gold",   "category": "level" },
+  { "id": "senior",      "name": "Senior",          "color": "navy",   "category": "level" },
+  { "id": "ausbildung",  "name": "Ausbildung",      "color": "teal",   "category": "typ" },
+  { "id": "studium",     "name": "Studium",         "color": "navy",   "category": "typ" },
+  { "id": "weiterbildung","name": "Weiterbildung",  "color": "coral",  "category": "typ" },
+  { "id": "kreativ",     "name": "Kreativ",         "color": "coral",  "category": "skill" },
+  { "id": "management",  "name": "Management",      "color": "navy",   "category": "skill" },
+  { "id": "international","name": "International",  "color": "teal",   "category": "skill" }
+]

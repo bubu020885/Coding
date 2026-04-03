@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard – FreizeitKarriere Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">🎡</div>
+      <div class="sidebar-logo-text">Freizeit<span>Karriere</span></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Navigation</div>
+      <a href="dashboard.html" class="sidebar-link"><div class="link-icon">📊</div>Dashboard</a>
+      <a href="berufe.html"     class="sidebar-link"><div class="link-icon">💼</div>Berufe</a>
+      <a href="geschichten.html"class="sidebar-link"><div class="link-icon">👥</div>Geschichten</a>
+      <a href="ausbildung.html" class="sidebar-link"><div class="link-icon">🎓</div>Ausbildung</a>
+      <a href="tags.html"       class="sidebar-link"><div class="link-icon">🏷️</div>Tags</a>
+      <div class="sidebar-section" style="margin-top:12px">Website</div>
+      <a href="/" target="_blank" class="sidebar-link"><div class="link-icon">🌐</div>Website öffnen</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-avatar">S</div>
+        <div class="sidebar-user-name">StefanBurian</div>
+      </div>
+      <button class="btn-logout btn">🚪 Abmelden</button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main-content">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="breadcrumb"><span>Dashboard</span></div>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-badge">🟢 Server aktiv</span>
+        <a href="/" target="_blank" class="btn btn-ghost btn-sm">🌐 Website</a>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Willkommen zurück! 👋</div>
+          <div class="page-subtitle">Hier ist eine Übersicht aller Inhalte von FreizeitKarriere.</div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid" id="stats-grid">
+        <div class="stat-card"><div class="stat-label">Berufe</div><div class="stat-num" id="s-berufe">–</div><div class="stat-sub">Berufsbilder</div><div class="stat-icon">💼</div></div>
+        <div class="stat-card"><div class="stat-label">Geschichten</div><div class="stat-num" id="s-geschichten">–</div><div class="stat-sub">Persönliche Storys</div><div class="stat-icon">👥</div></div>
+        <div class="stat-card"><div class="stat-label">Ausbildung</div><div class="stat-num" id="s-ausbildung">–</div><div class="stat-sub">Ausbildungswege</div><div class="stat-icon">🎓</div></div>
+        <div class="stat-card"><div class="stat-label">Tags</div><div class="stat-num" id="s-tags">–</div><div class="stat-sub">Kategorien & Labels</div><div class="stat-icon">🏷️</div></div>
+      </div>
+
+      <!-- Quick Access -->
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:24px">
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">💼 Berufe</span>
+            <a href="berufe.html" class="btn btn-primary btn-sm">+ Neuer Beruf</a>
+          </div>
+          <div id="berufe-preview" class="card-body" style="padding:0">
+            <div style="padding:20px;text-align:center;color:var(--text-light)">Lädt …</div>
+          </div>
+          <div style="padding:12px 20px;border-top:1px solid var(--border)">
+            <a href="berufe.html" style="font-size:0.85rem;color:var(--teal);font-weight:500">Alle Berufe verwalten →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">👥 Geschichten</span>
+            <a href="geschichte-edit.html" class="btn btn-primary btn-sm">+ Neue Geschichte</a>
+          </div>
+          <div id="geschichten-preview" class="card-body" style="padding:0">
+            <div style="padding:20px;text-align:center;color:var(--text-light)">Lädt …</div>
+          </div>
+          <div style="padding:12px 20px;border-top:1px solid var(--border)">
+            <a href="geschichten.html" style="font-size:0.85rem;color:var(--teal);font-weight:500">Alle Geschichten verwalten →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom row -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">🎓 Ausbildungswege</span>
+            <a href="ausbildung-edit.html" class="btn btn-primary btn-sm">+ Neuer Weg</a>
+          </div>
+          <div id="ausbildung-preview" class="card-body" style="padding:0">
+            <div style="padding:20px;text-align:center;color:var(--text-light)">Lädt …</div>
+          </div>
+          <div style="padding:12px 20px;border-top:1px solid var(--border)">
+            <a href="ausbildung.html" style="font-size:0.85rem;color:var(--teal);font-weight:500">Alle verwalten →</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header"><span class="card-title">🏷️ Tags verwalten</span></div>
+          <div class="card-body" id="tags-preview">
+            <div style="padding:4px;text-align:center;color:var(--text-light)">Lädt …</div>
+          </div>
+          <div style="padding:12px 20px;border-top:1px solid var(--border)">
+            <a href="tags.html" style="font-size:0.85rem;color:var(--teal);font-weight:500">Tags verwalten →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/admin.js"></script>
+<script>
+(async () => {
+  await checkAuth();
+  initSidebarActive();
+
+  const [berufe, geschichten, ausbildung, tags] = await Promise.all([
+    apiGet('/berufe'), apiGet('/geschichten'), apiGet('/ausbildung'), apiGet('/tags')
+  ]).catch(() => [[],[],[],[]]);
+
+  document.getElementById('s-berufe').textContent       = berufe.length;
+  document.getElementById('s-geschichten').textContent  = geschichten.length;
+  document.getElementById('s-ausbildung').textContent   = ausbildung.length;
+  document.getElementById('s-tags').textContent         = tags.length;
+
+  // Berufe preview
+  document.getElementById('berufe-preview').innerHTML = berufe.slice(0,5).map(b => `
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 20px;border-bottom:1px solid var(--border)">
+      <span style="font-size:1.3rem">${b.emoji||'💼'}</span>
+      <div style="flex:1;min-width:0"><div style="font-size:0.88rem;font-weight:600;truncate">${esc(b.title)}</div>
+      <div style="font-size:0.78rem;color:var(--text-light)">${esc(b.category||'')} · ${b.level||''}</div></div>
+      <a href="beruf-edit.html?id=${b.id}" class="btn btn-ghost btn-sm">Bearbeiten</a>
+    </div>`).join('') || '<div style="padding:20px;text-align:center;color:var(--text-light)">Noch keine Berufe</div>';
+
+  // Geschichten preview
+  document.getElementById('geschichten-preview').innerHTML = geschichten.slice(0,5).map(g => `
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 20px;border-bottom:1px solid var(--border)">
+      <span style="font-size:1.3rem">${g.emoji||'👤'}</span>
+      <div style="flex:1"><div style="font-size:0.88rem;font-weight:600">${esc(g.name)}</div>
+      <div style="font-size:0.78rem;color:var(--text-light)">${esc(g.role||'')} · ${esc(g.location||'')}</div></div>
+      <a href="geschichte-edit.html?id=${g.id}" class="btn btn-ghost btn-sm">Bearbeiten</a>
+    </div>`).join('') || '<div style="padding:20px;text-align:center;color:var(--text-light)">Noch keine Geschichten</div>';
+
+  // Ausbildung preview
+  document.getElementById('ausbildung-preview').innerHTML = ausbildung.slice(0,5).map(a => `
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 20px;border-bottom:1px solid var(--border)">
+      <span style="font-size:1.3rem">${a.emoji||'🎓'}</span>
+      <div style="flex:1"><div style="font-size:0.88rem;font-weight:600">${esc(a.title)}</div>
+      <div style="font-size:0.78rem;color:var(--text-light)">${a.type||''} · ${a.duration||''}</div></div>
+      <a href="ausbildung-edit.html?id=${a.id}" class="btn btn-ghost btn-sm">Bearbeiten</a>
+    </div>`).join('') || '<div style="padding:20px;text-align:center;color:var(--text-light)">Noch keine Einträge</div>';
+
+  // Tags preview
+  document.getElementById('tags-preview').innerHTML = `<div style="display:flex;flex-wrap:wrap;gap:8px">` +
+    tags.map(t => `<span class="tag tag-${t.color||'navy'}">${esc(t.name)}</span>`).join('') +
+    `</div>` || '<div style="color:var(--text-light);font-size:0.88rem">Noch keine Tags</div>';
+})();
+</script>
+</body>
+</html>

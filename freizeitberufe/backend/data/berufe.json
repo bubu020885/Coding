@@ -1,0 +1,241 @@
+[
+  {
+    "id": "eventmanager",
+    "title": "Eventmanager/in",
+    "emoji": "🎪",
+    "category": "events",
+    "level": "mid",
+    "salary_min": 35000,
+    "salary_max": 60000,
+    "description": "Unvergessliche Erlebnisse schaffen – von der ersten Idee bis zum letzten Applaus. Eventmanager sind die unsichtbaren Architekten des Moments.",
+    "long_description": "Eventmanager sind dafür verantwortlich, dass Veranstaltungen – von der kleinen Firmenfeier bis zum Großfestival mit 50.000 Besuchern – reibungslos laufen und im Gedächtnis bleiben. Der Beruf verbindet Kreativität, Projektmanagement und Nervenstärke.",
+    "tasks": [
+      { "icon": "💡", "title": "Konzeption & Kreation", "text": "Event-Ideen entwickeln, Konzepte erstellen, Briefings auswerten." },
+      { "icon": "📋", "title": "Projektmanagement", "text": "Zeitpläne erstellen, Budgets verwalten, Aufgaben delegieren." },
+      { "icon": "🤝", "title": "Dienstleistermanagement", "text": "Caterer, Technik, Dekoration, Sicherheit und Künstler koordinieren." },
+      { "icon": "📍", "title": "Location Management", "text": "Veranstaltungsorte scouten, besichtigen, buchen und koordinieren." }
+    ],
+    "skills": [
+      { "name": "Projektmanagement", "value": 95 },
+      { "name": "Kommunikation",     "value": 90 },
+      { "name": "Kreativität",       "value": 80 },
+      { "name": "Budgetmanagement",  "value": 75 },
+      { "name": "Belastbarkeit",     "value": 90 },
+      { "name": "Verhandlungsgeschick", "value": 70 }
+    ],
+    "tags": ["events", "mid", "kreativ", "management"],
+    "image": "",
+    "visual_class": "visual-event",
+    "work_hours": "Flexibel, Abende & Wochenenden",
+    "job_outlook": 4,
+    "open_positions": 4200,
+    "home_office": "Teilweise",
+    "training": "Studium oder IHK-Ausbildung",
+    "locations": ["Agenturen", "Hotels", "Kongress­zentren", "Festivals", "Unternehmen"],
+    "career_path": [
+      { "title": "Event-Assistent", "years": "0–2 Jahre" },
+      { "title": "Eventmanager",    "years": "2–6 Jahre" },
+      { "title": "Senior Manager",  "years": "6+ Jahre" },
+      { "title": "Director / CEO",  "years": "10+ Jahre" }
+    ],
+    "createdAt": "2025-01-01T00:00:00.000Z",
+    "updatedAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "freizeitpark-manager",
+    "title": "Freizeitpark-Manager/in",
+    "emoji": "🎡",
+    "category": "parks",
+    "level": "senior",
+    "salary_min": 55000,
+    "salary_max": 90000,
+    "description": "Verantworte den Betrieb ganzer Parks mit Hunderten von Mitarbeitern und Millionen Besuchern jährlich.",
+    "long_description": "Der Freizeitpark-Manager trägt die Gesamtverantwortung für alle Aspekte eines Freizeitparks: vom Gästeerlebnis über Sicherheit und Betrieb bis hin zu Finanzen, Marketing und Personal.",
+    "tasks": [
+      { "icon": "🎯", "title": "Strategische Parkentwicklung", "text": "Neue Attraktionen planen, Investitionen priorisieren." },
+      { "icon": "👥", "title": "Personalführung", "text": "Teams von 50–600 Personen führen und entwickeln." },
+      { "icon": "💹", "title": "Finanz-Verantwortung", "text": "Budget planen, Revenue-Streams optimieren." },
+      { "icon": "🛡️", "title": "Sicherheit & Compliance", "text": "Höchste Sicherheitsstandards sicherstellen." }
+    ],
+    "skills": [
+      { "name": "Strategisches Denken", "value": 95 },
+      { "name": "Führungsstärke",       "value": 95 },
+      { "name": "Betriebswirtschaft",   "value": 88 },
+      { "name": "Krisenmanagement",     "value": 90 },
+      { "name": "Gäste-Empathie",       "value": 85 }
+    ],
+    "tags": ["parks", "senior", "management"],
+    "image": "",
+    "visual_class": "visual-park",
+    "work_hours": "Vollzeit, saisonal intensiv",
+    "job_outlook": 5,
+    "open_positions": 420,
+    "home_office": "Selten",
+    "training": "Studium + 10+ Jahre Erfahrung",
+    "locations": ["Freizeitparks", "Zoos", "Erlebniswelten"],
+    "career_path": [
+      { "title": "Abteilungsleiter", "years": "0–5 Jahre" },
+      { "title": "Betriebsleiter",   "years": "5–10 Jahre" },
+      { "title": "Park-Direktor",    "years": "10+ Jahre" }
+    ],
+    "createdAt": "2025-01-01T00:00:00.000Z",
+    "updatedAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "animateur",
+    "title": "Animateur/Animateurin",
+    "emoji": "🎉",
+    "category": "parks",
+    "level": "entry",
+    "salary_min": 22000,
+    "salary_max": 34000,
+    "description": "Bring Menschen zum Lachen und Mitmachen. Täglich neue Energie und Abwechslung in Hotels, Clubs und Parks.",
+    "long_description": "Animateure sind das Herzstück der Unterhaltung in Hotels, Clubs, Freizeitparks und auf Kreuzfahrtschiffen. Sie planen und moderieren Aktivitäten, Spiele und Shows für Gäste aller Altersgruppen.",
+    "tasks": [
+      { "icon": "🎭", "title": "Shows & Programme", "text": "Abendshows, Theaterstücke und Unterhaltungsprogramme gestalten." },
+      { "icon": "🏊", "title": "Sportaktivitäten", "text": "Wassergymnastik, Turniere und Outdoor-Aktivitäten leiten." },
+      { "icon": "👶", "title": "Kinder-Animation", "text": "Kinderprogramm am Vormittag und am Nachmittag gestalten." }
+    ],
+    "skills": [
+      { "name": "Kontaktfreude",  "value": 95 },
+      { "name": "Bühnentalent",   "value": 85 },
+      { "name": "Belastbarkeit",  "value": 90 },
+      { "name": "Fremdsprachen",  "value": 65 },
+      { "name": "Sportlichkeit",  "value": 70 }
+    ],
+    "tags": ["parks", "events", "entry", "international"],
+    "image": "",
+    "visual_class": "visual-kids",
+    "work_hours": "Saison, Abende & Wochenenden",
+    "job_outlook": 4,
+    "open_positions": 3200,
+    "home_office": "Nein",
+    "training": "Keine Pflicht – interne Schulung",
+    "locations": ["Hotels", "Clubs", "Freizeitparks", "Kreuzfahrtschiffe"],
+    "career_path": [
+      { "title": "Animateur",          "years": "0–2 Jahre" },
+      { "title": "Senior Animator",    "years": "2–5 Jahre" },
+      { "title": "Chefsanimateur",     "years": "5+ Jahre" },
+      { "title": "Entertainment Director", "years": "10+ Jahre" }
+    ],
+    "createdAt": "2025-01-01T00:00:00.000Z",
+    "updatedAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "wellness-manager",
+    "title": "Wellness-Manager/in",
+    "emoji": "🧘",
+    "category": "wellness",
+    "level": "mid",
+    "salary_min": 38000,
+    "salary_max": 58000,
+    "description": "Schaffe Oasen der Entspannung und Erholung. Konzipiere und leite Wellness-Bereiche in Resorts und Hotels.",
+    "long_description": "Wellness-Manager entwickeln Konzepte für Spa- und Wellness-Bereiche, führen Teams aus Therapeuten und Kosmetikerinnen und sorgen für ein ganzheitliches Wohlbefindenserlebnis für die Gäste.",
+    "tasks": [
+      { "icon": "💆", "title": "Konzeptentwicklung", "text": "Wellness-Angebote konzipieren, Behandlungsmenüs entwickeln." },
+      { "icon": "👥", "title": "Teamführung", "text": "Therapeuten, Masseure und Kosmetikerinnen führen und schulen." },
+      { "icon": "📊", "title": "Revenue Management", "text": "Auslastung optimieren, Umsatzziele erreichen." }
+    ],
+    "skills": [
+      { "name": "Wellness-Know-how",  "value": 90 },
+      { "name": "Führungsqualität",   "value": 80 },
+      { "name": "Gastfreundschaft",   "value": 92 },
+      { "name": "Budgetmanagement",   "value": 70 },
+      { "name": "Konzeptentwicklung", "value": 85 }
+    ],
+    "tags": ["wellness", "mid", "management"],
+    "image": "",
+    "visual_class": "visual-wellness",
+    "work_hours": "Vollzeit, Wochenenden möglich",
+    "job_outlook": 5,
+    "open_positions": 1800,
+    "home_office": "Selten",
+    "training": "Studium / Zertifikat Wellness-Management",
+    "locations": ["Luxushotels", "Resorts", "Thermen", "Kreuzfahrtschiffe"],
+    "career_path": [
+      { "title": "Wellness-Therapeut",   "years": "0–3 Jahre" },
+      { "title": "Wellness-Manager",     "years": "3–7 Jahre" },
+      { "title": "Spa Director",         "years": "7+ Jahre" }
+    ],
+    "createdAt": "2025-01-01T00:00:00.000Z",
+    "updatedAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "reiseleiter",
+    "title": "Reiseleiter/in",
+    "emoji": "✈️",
+    "category": "tourismus",
+    "level": "entry",
+    "salary_min": 24000,
+    "salary_max": 40000,
+    "description": "Die Welt ist dein Arbeitsplatz. Begleite Gruppen durch Länder und Kulturen und mache Urlaub zum Erlebnis.",
+    "long_description": "Reiseleiter begleiten Reisegruppen auf ihren Reisen, erklären Sehenswürdigkeiten, lösen Probleme und sorgen für ein unvergessliches Erlebnis.",
+    "tasks": [
+      { "icon": "🗺️", "title": "Gruppenbetreuung", "text": "Reisegruppen begleiten, betreuen und informieren." },
+      { "icon": "🏛️", "title": "Stadtführungen", "text": "Sehenswürdigkeiten erklären und Hintergrundwissen vermitteln." },
+      { "icon": "🛎️", "title": "Service & Problemlösung", "text": "Hotelprobleme, Flugänderungen und Kundenwünsche managen." }
+    ],
+    "skills": [
+      { "name": "Fremdsprachen",    "value": 90 },
+      { "name": "Reisendes Wissen", "value": 85 },
+      { "name": "Empathie",         "value": 88 },
+      { "name": "Flexibilität",     "value": 95 },
+      { "name": "Stressresistenz",  "value": 85 }
+    ],
+    "tags": ["tourismus", "entry", "international"],
+    "image": "",
+    "visual_class": "visual-tourism",
+    "work_hours": "Saisonal, Reise-bedingt",
+    "job_outlook": 3,
+    "open_positions": 2100,
+    "home_office": "Nein",
+    "training": "Tourismuskaufmann/-frau oder Studium",
+    "locations": ["Reiseveranstalter", "Airlines", "Kreuzfahrt", "Busreisen"],
+    "career_path": [
+      { "title": "Reiseleiter",           "years": "0–3 Jahre" },
+      { "title": "Senior Reiseleiter",    "years": "3–6 Jahre" },
+      { "title": "Destinationsmanager",   "years": "6+ Jahre" }
+    ],
+    "createdAt": "2025-01-01T00:00:00.000Z",
+    "updatedAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "erlebnispaedagoge",
+    "title": "Erlebnispädagoge/in",
+    "emoji": "🌲",
+    "category": "natur",
+    "level": "entry",
+    "salary_min": 26000,
+    "salary_max": 42000,
+    "description": "Verbinde Natur, Spiel und Lernen. Erlebnispädagogen arbeiten in Schulen, Camps und Outdoor-Einrichtungen.",
+    "long_description": "Erlebnispädagogen nutzen Aktivitäten in der Natur als pädagogisches Mittel. Kletterparks, Floßbauten und Wilderness-Camps sind ihre Klassenzimmer.",
+    "tasks": [
+      { "icon": "🏕️", "title": "Outdoor-Programme", "text": "Erlebnisreiche Programme in der Natur konzipieren und leiten." },
+      { "icon": "👥", "title": "Gruppenarbeit", "text": "Teambuilding, Gruppenreflexion und pädagogische Begleitung." },
+      { "icon": "🌿", "title": "Naturvermittlung", "text": "Naturwissen weitergeben und Umweltbewusstsein stärken." }
+    ],
+    "skills": [
+      { "name": "Naturverbundenheit",  "value": 90 },
+      { "name": "Einfühlungsvermögen", "value": 95 },
+      { "name": "Outdoor-Ausdauer",    "value": 85 },
+      { "name": "Gruppenführung",      "value": 88 },
+      { "name": "Erste Hilfe",         "value": 100 }
+    ],
+    "tags": ["natur", "entry", "kreativ"],
+    "image": "",
+    "visual_class": "visual-nature",
+    "work_hours": "Projekt- und saisonabhängig",
+    "job_outlook": 4,
+    "open_positions": 1200,
+    "home_office": "Nein",
+    "training": "Studium Erlebnispädagogik / Zertifikat",
+    "locations": ["Schulen", "Schullandheime", "Camps", "Naturparks", "Unternehmen"],
+    "career_path": [
+      { "title": "Erlebnispädagoge",     "years": "0–3 Jahre" },
+      { "title": "Teamleiter",           "years": "3–6 Jahre" },
+      { "title": "Einrichtungsleiter",   "years": "6+ Jahre" }
+    ],
+    "createdAt": "2025-01-01T00:00:00.000Z",
+    "updatedAt": "2025-01-01T00:00:00.000Z"
+  }
+]

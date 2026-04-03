@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tags – FreizeitKarriere Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="sidebar-logo-icon">🎡</div><div class="sidebar-logo-text">Freizeit<span>Karriere</span></div></div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Navigation</div>
+      <a href="dashboard.html"  class="sidebar-link"><div class="link-icon">📊</div>Dashboard</a>
+      <a href="berufe.html"     class="sidebar-link"><div class="link-icon">💼</div>Berufe</a>
+      <a href="geschichten.html"class="sidebar-link"><div class="link-icon">👥</div>Geschichten</a>
+      <a href="ausbildung.html" class="sidebar-link"><div class="link-icon">🎓</div>Ausbildung</a>
+      <a href="tags.html"       class="sidebar-link active"><div class="link-icon">🏷️</div>Tags</a>
+      <div class="sidebar-section" style="margin-top:12px">Website</div>
+      <a href="/" target="_blank" class="sidebar-link"><div class="link-icon">🌐</div>Website öffnen</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user"><div class="sidebar-avatar">S</div><div class="sidebar-user-name">StefanBurian</div></div>
+      <button class="btn-logout btn">🚪 Abmelden</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="breadcrumb">
+          <a href="dashboard.html">Dashboard</a><span class="breadcrumb-sep">/</span><span>Tags</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button id="btn-new" class="btn btn-primary btn-sm">+ Neuer Tag</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div>
+          <div class="page-title">🏷️ Tags verwalten</div>
+          <div class="page-subtitle">Kategorien, Labels und Bereiche – werden für Berufe, Geschichten und Ausbildung verwendet</div>
+        </div>
+        <button id="btn-new2" class="btn btn-primary">+ Neuer Tag</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start">
+
+        <!-- Left: Tag List -->
+        <div>
+          <!-- Category Tabs -->
+          <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+            <button class="btn btn-primary btn-sm cat-filter active" data-cat="">Alle Tags</button>
+            <button class="btn btn-ghost btn-sm cat-filter" data-cat="bereich">Bereiche</button>
+            <button class="btn btn-ghost btn-sm cat-filter" data-cat="level">Level</button>
+            <button class="btn btn-ghost btn-sm cat-filter" data-cat="typ">Typ</button>
+            <button class="btn btn-ghost btn-sm cat-filter" data-cat="skill">Skill</button>
+          </div>
+
+          <!-- Tags Grid -->
+          <div id="tags-grid" style="display:flex;flex-direction:column;gap:10px">
+            <div style="padding:32px;text-align:center;color:var(--text-light)">Lädt …</div>
+          </div>
+        </div>
+
+        <!-- Right: Edit Panel -->
+        <div id="edit-panel" class="card" style="position:sticky;top:80px">
+          <div class="card-header" style="justify-content:space-between">
+            <span class="card-title" id="panel-title">Neuer Tag</span>
+            <button id="btn-panel-close" class="btn btn-ghost btn-sm" style="display:none">✕</button>
+          </div>
+          <div class="card-body">
+            <div id="panel-alert" style="display:none;margin-bottom:12px"></div>
+
+            <div class="form-group" style="margin-bottom:14px">
+              <label>Name <span class="required">*</span></label>
+              <input id="f-name" type="text" class="form-control" placeholder="z.B. Events & Shows">
+            </div>
+
+            <div class="form-group" style="margin-bottom:14px">
+              <label>ID / Slug <span class="required">*</span></label>
+              <input id="f-id" type="text" class="form-control" placeholder="z.B. events" pattern="[a-z0-9-]+">
+              <span class="form-hint">Kleinbuchstaben, Zahlen, Bindestriche</span>
+            </div>
+
+            <div class="form-group" style="margin-bottom:14px">
+              <label>Kategorie</label>
+              <select id="f-category" class="form-control">
+                <option value="bereich">Bereich (z.B. Parks, Events)</option>
+                <option value="level">Level (Einstieg, Senior)</option>
+                <option value="typ">Typ (Ausbildung, Studium)</option>
+                <option value="skill">Skill (Kreativ, Management)</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom:20px">
+              <label>Farbe</label>
+              <div class="color-dots">
+                <div class="color-dot navy selected" data-color="navy" title="Navy Blau"></div>
+                <div class="color-dot teal"          data-color="teal"  title="Teal"></div>
+                <div class="color-dot coral"         data-color="coral" title="Coral"></div>
+                <div class="color-dot gold"          data-color="gold"  title="Gold"></div>
+                <div class="color-dot green"         data-color="green" title="Grün"></div>
+              </div>
+              <input type="hidden" id="f-color" value="navy">
+            </div>
+
+            <!-- Preview -->
+            <div style="background:var(--bg);border-radius:var(--r);padding:12px;margin-bottom:16px;display:flex;align-items:center;gap:8px">
+              <span style="font-size:0.78rem;color:var(--text-light)">Vorschau:</span>
+              <span id="tag-preview" class="tag tag-navy">Tag-Name</span>
+            </div>
+
+            <div style="display:flex;gap:8px">
+              <button id="btn-save-tag" class="btn btn-primary" style="flex:1;justify-content:center">💾 Speichern</button>
+              <button id="btn-cancel-tag" class="btn btn-ghost" style="display:none">Abbrechen</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/admin.js"></script>
+<script>
+let allTags     = [];
+let editTagId   = null;
+let selectedColor = 'navy';
+
+const CAT_LABELS = { bereich:'Bereich', level:'Level', typ:'Typ', skill:'Skill' };
+
+function renderTagCard(tag) {
+  return `
+    <div class="card" style="padding:14px 18px;display:flex;align-items:center;gap:12px" data-cat="${tag.category||''}">
+      <span class="tag tag-${tag.color||'navy'}" style="min-width:100px;justify-content:center">${esc(tag.name)}</span>
+      <div style="flex:1">
+        <div style="font-size:0.82rem;color:var(--text-light)">
+          ID: <code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:0.78rem">${esc(tag.id)}</code>
+          &nbsp;·&nbsp;
+          Kategorie: <strong>${esc(CAT_LABELS[tag.category]||tag.category||'–')}</strong>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-ghost btn-sm" onclick="editTag('${tag.id}')">✏️ Edit</button>
+        <button class="btn btn-danger btn-sm btn-icon" onclick="deleteTag('${tag.id}','${esc(tag.name)}')" title="Löschen">🗑</button>
+      </div>
+    </div>`;
+}
+
+function renderTags(filter = '') {
+  const grid = document.getElementById('tags-grid');
+  const data = filter ? allTags.filter(t => t.category === filter) : allTags;
+  if (!data.length) {
+    grid.innerHTML = `<div class="empty-state"><div class="empty-state-icon">🏷️</div><h3>Keine Tags gefunden</h3></div>`;
+    return;
+  }
+
+  // Group by category
+  const groups = {};
+  data.forEach(t => {
+    const cat = t.category || 'andere';
+    if (!groups[cat]) groups[cat] = [];
+    groups[cat].push(t);
+  });
+
+  grid.innerHTML = Object.entries(groups).map(([cat, tags]) => `
+    <div>
+      <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);margin-bottom:8px;padding-left:4px">
+        ${CAT_LABELS[cat]||cat}
+      </div>
+      ${tags.map(renderTagCard).join('')}
+    </div>`).join('');
+}
+
+function editTag(id) {
+  const tag = allTags.find(t => t.id === id);
+  if (!tag) return;
+  editTagId = id;
+  document.getElementById('panel-title').textContent    = 'Tag bearbeiten';
+  document.getElementById('f-name').value               = tag.name;
+  document.getElementById('f-id').value                 = tag.id;
+  document.getElementById('f-id').disabled              = true;
+  document.getElementById('f-category').value           = tag.category || 'bereich';
+  setColor(tag.color || 'navy');
+  document.getElementById('btn-panel-close').style.display = '';
+  document.getElementById('btn-cancel-tag').style.display  = '';
+  updatePreview();
+}
+
+function resetPanel() {
+  editTagId = null;
+  document.getElementById('panel-title').textContent    = 'Neuer Tag';
+  document.getElementById('f-name').value               = '';
+  document.getElementById('f-id').value                 = '';
+  document.getElementById('f-id').disabled              = false;
+  document.getElementById('f-category').value           = 'bereich';
+  setColor('navy');
+  document.getElementById('btn-panel-close').style.display  = 'none';
+  document.getElementById('btn-cancel-tag').style.display   = 'none';
+  document.getElementById('panel-alert').style.display      = 'none';
+  updatePreview();
+}
+
+function setColor(color) {
+  selectedColor = color;
+  document.getElementById('f-color').value = color;
+  document.querySelectorAll('.color-dot').forEach(d => d.classList.toggle('selected', d.dataset.color === color));
+  updatePreview();
+}
+
+function updatePreview() {
+  const preview = document.getElementById('tag-preview');
+  preview.textContent  = document.getElementById('f-name').value || 'Tag-Name';
+  preview.className    = `tag tag-${selectedColor}`;
+}
+
+// Auto-slug from name
+document.getElementById('f-name').addEventListener('input', () => {
+  if (!editTagId) {
+    const slug = document.getElementById('f-name').value
+      .toLowerCase()
+      .replace(/[äöü]/g, c => ({ ä:'ae',ö:'oe',ü:'ue' }[c]||c))
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    document.getElementById('f-id').value = slug;
+  }
+  updatePreview();
+});
+
+document.querySelectorAll('.color-dot').forEach(dot => {
+  dot.addEventListener('click', () => setColor(dot.dataset.color));
+});
+
+async function saveTag() {
+  const name = document.getElementById('f-name').value.trim();
+  const id   = document.getElementById('f-id').value.trim();
+  if (!name || !id) { showAlert('Name und ID sind Pflichtfelder.', 'error'); return; }
+  if (!/^[a-z0-9-]+$/.test(id)) { showAlert('ID darf nur Kleinbuchstaben, Zahlen und Bindestriche enthalten.', 'error'); return; }
+
+  const payload = {
+    name,
+    id,
+    category: document.getElementById('f-category').value,
+    color:    selectedColor
+  };
+
+  try {
+    if (editTagId) {
+      const updated = await apiPut(`/tags/${editTagId}`, payload);
+      allTags = allTags.map(t => t.id === editTagId ? updated : t);
+      toast('Tag gespeichert!');
+    } else {
+      if (allTags.find(t => t.id === id)) { showAlert('Eine Tag mit dieser ID existiert bereits.', 'error'); return; }
+      const created = await apiPost('/tags', payload);
+      allTags.push(created);
+      toast('Tag erstellt!');
+    }
+    renderTags(document.querySelector('.cat-filter.active')?.dataset.cat || '');
+    resetPanel();
+  } catch(e) { showAlert(e.message, 'error'); }
+}
+
+function showAlert(msg, type) {
+  const el = document.getElementById('panel-alert');
+  el.className = `alert alert-${type}`;
+  el.textContent = (type === 'error' ? '❌ ' : '✅ ') + msg;
+  el.style.display = 'flex';
+}
+
+async function deleteTag(id, name) {
+  confirm(`Tag „${name}" wirklich löschen? Er wird aus allen verknüpften Einträgen entfernt.`, async () => {
+    try {
+      await apiDelete(`/tags/${id}`);
+      allTags = allTags.filter(t => t.id !== id);
+      renderTags(document.querySelector('.cat-filter.active')?.dataset.cat || '');
+      toast(`Tag „${name}" gelöscht.`);
+      if (editTagId === id) resetPanel();
+    } catch(e) { toast(e.message, 'error'); }
+  });
+}
+
+// Category filters
+document.querySelectorAll('.cat-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-filter').forEach(b => { b.classList.remove('active'); b.className = b.className.replace('btn-primary','btn-ghost'); });
+    btn.classList.add('active');
+    btn.className = btn.className.replace('btn-ghost','btn-primary');
+    renderTags(btn.dataset.cat);
+  });
+});
+
+document.getElementById('btn-new').addEventListener('click', resetPanel);
+document.getElementById('btn-new2').addEventListener('click', resetPanel);
+document.getElementById('btn-panel-close').addEventListener('click', resetPanel);
+document.getElementById('btn-cancel-tag').addEventListener('click', resetPanel);
+document.getElementById('btn-save-tag').addEventListener('click', saveTag);
+
+(async () => {
+  await checkAuth();
+  initSidebarActive();
+  allTags = await apiGet('/tags').catch(() => []);
+  renderTags();
+  updatePreview();
+})();
+</script>
+</body>
+</html>

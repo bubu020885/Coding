@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geschichte bearbeiten – FreizeitKarriere Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="sidebar-logo-icon">🎡</div><div class="sidebar-logo-text">Freizeit<span>Karriere</span></div></div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Navigation</div>
+      <a href="dashboard.html"  class="sidebar-link"><div class="link-icon">📊</div>Dashboard</a>
+      <a href="berufe.html"     class="sidebar-link"><div class="link-icon">💼</div>Berufe</a>
+      <a href="geschichten.html"class="sidebar-link active"><div class="link-icon">👥</div>Geschichten</a>
+      <a href="ausbildung.html" class="sidebar-link"><div class="link-icon">🎓</div>Ausbildung</a>
+      <a href="tags.html"       class="sidebar-link"><div class="link-icon">🏷️</div>Tags</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user"><div class="sidebar-avatar">S</div><div class="sidebar-user-name">StefanBurian</div></div>
+      <button class="btn-logout btn">🚪 Abmelden</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="breadcrumb">
+          <a href="dashboard.html">Dashboard</a><span class="breadcrumb-sep">/</span>
+          <a href="geschichten.html">Geschichten</a><span class="breadcrumb-sep">/</span>
+          <span id="bc-title">Neue Geschichte</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button id="btn-save" class="btn btn-primary">💾 Speichern</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div>
+          <div class="page-title" id="page-title">Neue Geschichte anlegen</div>
+          <div class="page-subtitle">Authentische Karrieregeschichte aus der Freizeitbranche</div>
+        </div>
+        <div style="display:flex;gap:10px">
+          <a href="geschichten.html" class="btn btn-ghost">↩ Zurück</a>
+          <button id="btn-save2" class="btn btn-primary">💾 Speichern</button>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:start">
+        <!-- Left Column -->
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="card">
+            <div class="card-header"><span class="card-title">👤 Person</span></div>
+            <div class="card-body">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Name <span class="required">*</span></label>
+                  <input id="f-name" type="text" class="form-control" placeholder="z.B. Lisa Mayer">
+                </div>
+                <div class="form-group">
+                  <label>Emoji / Avatar</label>
+                  <input id="f-emoji" type="text" class="form-control" placeholder="👩" maxlength="4">
+                </div>
+                <div class="form-group span-2">
+                  <label>Rolle / Position <span class="required">*</span></label>
+                  <input id="f-role" type="text" class="form-control" placeholder="z.B. Senior Eventmanagerin">
+                </div>
+                <div class="form-group">
+                  <label>Unternehmen</label>
+                  <input id="f-company" type="text" class="form-control" placeholder="z.B. Moments GmbH">
+                </div>
+                <div class="form-group">
+                  <label>Standort</label>
+                  <input id="f-location" type="text" class="form-control" placeholder="z.B. München">
+                </div>
+                <div class="form-group">
+                  <label>Jahre Erfahrung</label>
+                  <input id="f-years" type="number" class="form-control" min="0" max="50" placeholder="8">
+                </div>
+                <div class="form-group">
+                  <label>CSS Visual-Klasse</label>
+                  <select id="f-visual" class="form-control">
+                    <option value="visual-event">Events (Lila-Orange)</option>
+                    <option value="visual-park">Parks (Blau)</option>
+                    <option value="visual-hotel">Hotel (Grün)</option>
+                    <option value="visual-sport">Sport (Rot)</option>
+                    <option value="visual-tourism">Tourismus (Türkis)</option>
+                    <option value="visual-wellness">Wellness (Lila)</option>
+                    <option value="visual-nature">Natur (Grün)</option>
+                    <option value="visual-kids">Kids (Blau)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><span class="card-title">💬 Geschichte & Zitat</span></div>
+            <div class="card-body">
+              <div class="form-group" style="margin-bottom:16px">
+                <label>Kurzzitat <span class="required">*</span></label>
+                <input id="f-quote" type="text" class="form-control" placeholder="„Ein prägnantes Zitat, das den Job auf den Punkt bringt."">
+                <span class="form-hint">Erscheint als Pull-Quote auf der Website</span>
+              </div>
+              <div class="form-group">
+                <label>Ausführliche Geschichte</label>
+                <textarea id="f-story" class="form-control" style="min-height:200px" placeholder="Erzähle die Karrieregeschichte der Person – wie sie zur Freizeitbranche gekommen ist, was sie erlebt hat, was sie antreibt …"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><span class="card-title">🏷️ Tags & Verknüpfungen</span></div>
+            <div class="card-body">
+              <div class="form-group" style="margin-bottom:16px">
+                <label>Zugehöriger Beruf</label>
+                <select id="f-related-job" class="form-control">
+                  <option value="">– Keiner ausgewählt –</option>
+                </select>
+                <span class="form-hint">Verlinkt die Geschichte mit einem Berufsbild</span>
+              </div>
+              <div class="form-group">
+                <label>Tags</label>
+                <div id="tag-select" class="tag-select-wrap"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="card">
+            <div class="card-header"><span class="card-title">🖼️ Portraitfoto</span></div>
+            <div class="card-body">
+              <div class="upload-zone" id="upload-zone" data-current="">
+                <input type="file" class="upload-input" accept="image/*">
+                <div class="upload-zone-icon">📷</div>
+                <div class="upload-zone-text">Foto hochladen</div>
+                <div class="upload-zone-hint">Portaitfoto · max. 8 MB</div>
+              </div>
+              <div id="upload-preview"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><span class="card-title">📊 Kennzahlen</span></div>
+            <div class="card-body">
+              <div class="form-group" style="margin-bottom:12px">
+                <label>Anzahl Events / Projekte</label>
+                <input id="f-events-count" type="number" class="form-control" placeholder="0 (optional)">
+              </div>
+              <div class="form-group">
+                <label>Zusätzliche Kennzahl-Label</label>
+                <input id="f-stat-label" type="text" class="form-control" placeholder="z.B. Jugendliche begleitet">
+              </div>
+            </div>
+          </div>
+
+          <!-- Preview Card -->
+          <div class="card" style="overflow:hidden">
+            <div class="card-header"><span class="card-title">👁️ Vorschau</span></div>
+            <div id="preview-card" style="overflow:hidden;border-radius:0 0 var(--r-lg) var(--r-lg)">
+              <div style="height:80px;background:linear-gradient(135deg,#1B3A5C,#2D7D9A);display:flex;align-items:center;padding:0 16px">
+                <span id="prev-emoji" style="font-size:2.5rem">👤</span>
+              </div>
+              <div style="padding:16px">
+                <div id="prev-name" style="font-weight:700;font-size:1rem">Name</div>
+                <div id="prev-role" style="font-size:0.82rem;color:var(--teal);margin-bottom:8px">Rolle · Ort</div>
+                <div id="prev-quote" style="font-size:0.82rem;color:var(--text-light);font-style:italic">"Zitat erscheint hier …"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/admin.js"></script>
+<script>
+let editId      = null;
+let uploadZone  = null;
+let tagSelector = null;
+
+// Live preview
+function updatePreview() {
+  document.getElementById('prev-emoji').textContent = document.getElementById('f-emoji').value || '👤';
+  document.getElementById('prev-name').textContent  = document.getElementById('f-name').value  || 'Name';
+  document.getElementById('prev-role').textContent  =
+    (document.getElementById('f-role').value || 'Rolle') + ' · ' + (document.getElementById('f-location').value || 'Ort');
+  document.getElementById('prev-quote').textContent = '"' + (document.getElementById('f-quote').value || 'Zitat erscheint hier …') + '"';
+}
+['f-emoji','f-name','f-role','f-location','f-quote'].forEach(id => {
+  document.getElementById(id)?.addEventListener('input', updatePreview);
+});
+
+async function loadForm() {
+  await checkAuth();
+  initSidebarActive();
+
+  const [allTags, allBerufe] = await Promise.all([
+    apiGet('/tags').catch(()=>[]),
+    apiGet('/berufe').catch(()=>[])
+  ]);
+
+  // Fill related job dropdown
+  const sel = document.getElementById('f-related-job');
+  allBerufe.forEach(b => {
+    const opt = document.createElement('option');
+    opt.value = b.id; opt.textContent = b.emoji + ' ' + b.title;
+    sel.appendChild(opt);
+  });
+
+  editId = getParam('id');
+  let data = {};
+  if (editId) {
+    data = await apiGet(`/geschichten/${editId}`).catch(()=>({}));
+    document.getElementById('page-title').textContent = `Geschichte bearbeiten: ${data.name}`;
+    document.getElementById('bc-title').textContent   = data.name;
+  }
+
+  const fields = {
+    'f-name':          data.name         || '',
+    'f-emoji':         data.emoji        || '',
+    'f-role':          data.role         || '',
+    'f-company':       data.company      || '',
+    'f-location':      data.location     || '',
+    'f-years':         data.years_experience || '',
+    'f-visual':        data.visual_class || 'visual-event',
+    'f-quote':         data.quote        || '',
+    'f-story':         data.story        || '',
+    'f-related-job':   data.related_job  || '',
+    'f-events-count':  data.events_count || '',
+    'f-stat-label':    data.stat_label   || ''
+  };
+  Object.entries(fields).forEach(([id, val]) => {
+    const el = document.getElementById(id);
+    if (el) el.value = val;
+  });
+
+  if (data.image) document.getElementById('upload-zone').dataset.current = data.image;
+  uploadZone  = initUploadZone('upload-zone', 'upload-preview');
+  tagSelector = initTagSelect('tag-select', allTags, data.tags || []);
+  updatePreview();
+}
+
+async function save() {
+  const name = document.getElementById('f-name').value.trim();
+  if (!name) { toast('Bitte einen Namen eingeben.', 'error'); return; }
+
+  const payload = {
+    name,
+    emoji:            document.getElementById('f-emoji').value.trim(),
+    role:             document.getElementById('f-role').value.trim(),
+    company:          document.getElementById('f-company').value.trim(),
+    location:         document.getElementById('f-location').value.trim(),
+    years_experience: parseInt(document.getElementById('f-years').value) || 0,
+    visual_class:     document.getElementById('f-visual').value,
+    quote:            document.getElementById('f-quote').value.trim(),
+    story:            document.getElementById('f-story').value.trim(),
+    related_job:      document.getElementById('f-related-job').value,
+    events_count:     parseInt(document.getElementById('f-events-count').value) || 0,
+    stat_label:       document.getElementById('f-stat-label').value.trim(),
+    image:            uploadZone?.getUrl() || '',
+    tags:             tagSelector?.getSelected() || []
+  };
+
+  try {
+    if (editId) {
+      await apiPut(`/geschichten/${editId}`, payload);
+      toast('Geschichte gespeichert!');
+    } else {
+      const created = await apiPost('/geschichten', payload);
+      toast('Geschichte erstellt!');
+      editId = created.id;
+      history.replaceState(null, '', `geschichte-edit.html?id=${editId}`);
+    }
+  } catch(e) { toast(e.message, 'error'); }
+}
+
+document.getElementById('btn-save').addEventListener('click', save);
+document.getElementById('btn-save2').addEventListener('click', save);
+loadForm();
+</script>
+</body>
+</html>

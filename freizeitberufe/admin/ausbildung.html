@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ausbildung – FreizeitKarriere Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="sidebar-logo-icon">🎡</div><div class="sidebar-logo-text">Freizeit<span>Karriere</span></div></div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Navigation</div>
+      <a href="dashboard.html"  class="sidebar-link"><div class="link-icon">📊</div>Dashboard</a>
+      <a href="berufe.html"     class="sidebar-link"><div class="link-icon">💼</div>Berufe</a>
+      <a href="geschichten.html"class="sidebar-link"><div class="link-icon">👥</div>Geschichten</a>
+      <a href="ausbildung.html" class="sidebar-link active"><div class="link-icon">🎓</div>Ausbildung</a>
+      <a href="tags.html"       class="sidebar-link"><div class="link-icon">🏷️</div>Tags</a>
+      <div class="sidebar-section" style="margin-top:12px">Website</div>
+      <a href="/" target="_blank" class="sidebar-link"><div class="link-icon">🌐</div>Website öffnen</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user"><div class="sidebar-avatar">S</div><div class="sidebar-user-name">StefanBurian</div></div>
+      <button class="btn-logout btn">🚪 Abmelden</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="breadcrumb">
+          <a href="dashboard.html">Dashboard</a><span class="breadcrumb-sep">/</span><span>Ausbildung</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <a href="ausbildung-edit.html" class="btn btn-primary btn-sm">+ Neuer Weg</a>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div>
+          <div class="page-title">🎓 Ausbildungswege</div>
+          <div class="page-subtitle">Ausbildungen, Studiengänge und Weiterbildungen verwalten</div>
+        </div>
+        <a href="ausbildung-edit.html" class="btn btn-primary">+ Neuer Weg</a>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-input-wrap">
+          <span class="icon">🔍</span>
+          <input type="text" id="search" class="search-input" placeholder="Ausbildungsweg suchen …">
+        </div>
+        <select id="filter-type" class="form-control" style="width:auto">
+          <option value="">Alle Typen</option>
+          <option value="ausbildung">🎪 Ausbildung</option>
+          <option value="studium">🏛️ Studium</option>
+          <option value="weiterbildung">📚 Weiterbildung</option>
+        </select>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:40px"></th>
+                <th>Bezeichnung</th>
+                <th>Typ</th>
+                <th>Dauer</th>
+                <th>Gehalt / Förderung</th>
+                <th>Institutionen</th>
+                <th>Zuletzt geändert</th>
+                <th style="width:120px">Aktionen</th>
+              </tr>
+            </thead>
+            <tbody id="ausbildung-body">
+              <tr><td colspan="8" style="text-align:center;padding:32px;color:var(--text-light)">Lädt …</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/admin.js"></script>
+<script>
+let allData = [];
+const TYPE_LABELS  = { ausbildung:'Ausbildung', studium:'Studium', weiterbildung:'Weiterbildung' };
+const TYPE_COLORS  = { ausbildung:'teal', studium:'navy', weiterbildung:'coral' };
+
+function renderTable(data) {
+  const tbody = document.getElementById('ausbildung-body');
+  if (!data.length) {
+    tbody.innerHTML = `<tr><td colspan="8"><div class="empty-state"><div class="empty-state-icon">🎓</div><h3>Keine Einträge gefunden</h3></div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = data.map(a => `
+    <tr>
+      <td style="font-size:1.5rem;text-align:center">${esc(a.emoji||'🎓')}</td>
+      <td>
+        <div style="font-weight:600;font-size:0.9rem">${esc(a.title)}</div>
+        ${a.image ? `<span style="font-size:0.75rem;color:var(--green)">📷 Foto</span>` : ''}
+      </td>
+      <td><span class="tag tag-${TYPE_COLORS[a.type]||'navy'}">${esc(TYPE_LABELS[a.type]||a.type||'–')}</span></td>
+      <td style="font-size:0.88rem">${esc(a.duration||'–')}</td>
+      <td style="font-size:0.85rem;white-space:nowrap">
+        ${a.salary_min ? `${a.salary_min}–${a.salary_max} € / ${a.salary_unit||'Monat'}` : '–'}
+      </td>
+      <td style="font-size:0.82rem;color:var(--text-light)">
+        ${(a.institutions||[]).slice(0,2).join(', ')}${(a.institutions||[]).length > 2 ? ' …' : ''}
+      </td>
+      <td style="font-size:0.78rem;color:var(--text-light)">${a.updatedAt ? new Date(a.updatedAt).toLocaleDateString('de-DE') : '–'}</td>
+      <td>
+        <div class="td-actions">
+          <a href="ausbildung-edit.html?id=${a.id}" class="btn btn-ghost btn-sm">✏️ Edit</a>
+          <button class="btn btn-danger btn-icon" onclick="deleteItem('${a.id}','${esc(a.title)}')" title="Löschen">🗑</button>
+        </div>
+      </td>
+    </tr>`).join('');
+}
+
+async function deleteItem(id, name) {
+  confirm(`Ausbildungsweg „${name}" wirklich löschen?`, async () => {
+    try {
+      await apiDelete(`/ausbildung/${id}`);
+      allData = allData.filter(a => a.id !== id);
+      filterData();
+      toast(`„${name}" wurde gelöscht.`);
+    } catch(e) { toast(e.message, 'error'); }
+  });
+}
+
+function filterData() {
+  const q    = document.getElementById('search').value.toLowerCase();
+  const type = document.getElementById('filter-type').value;
+  renderTable(allData.filter(a =>
+    (!q    || a.title?.toLowerCase().includes(q)) &&
+    (!type || a.type === type)
+  ));
+}
+
+(async () => {
+  await checkAuth();
+  initSidebarActive();
+  allData = await apiGet('/ausbildung').catch(() => []);
+  renderTable(allData);
+  document.getElementById('search').addEventListener('input', filterData);
+  document.getElementById('filter-type').addEventListener('change', filterData);
+})();
+</script>
+</body>
+</html>

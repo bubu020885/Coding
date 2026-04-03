@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berufe – FreizeitKarriere Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="sidebar-logo-icon">🎡</div><div class="sidebar-logo-text">Freizeit<span>Karriere</span></div></div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Navigation</div>
+      <a href="dashboard.html"  class="sidebar-link"><div class="link-icon">📊</div>Dashboard</a>
+      <a href="berufe.html"     class="sidebar-link active"><div class="link-icon">💼</div>Berufe</a>
+      <a href="geschichten.html"class="sidebar-link"><div class="link-icon">👥</div>Geschichten</a>
+      <a href="ausbildung.html" class="sidebar-link"><div class="link-icon">🎓</div>Ausbildung</a>
+      <a href="tags.html"       class="sidebar-link"><div class="link-icon">🏷️</div>Tags</a>
+      <div class="sidebar-section" style="margin-top:12px">Website</div>
+      <a href="/" target="_blank" class="sidebar-link"><div class="link-icon">🌐</div>Website öffnen</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user"><div class="sidebar-avatar">S</div><div class="sidebar-user-name">StefanBurian</div></div>
+      <button class="btn-logout btn">🚪 Abmelden</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="breadcrumb">
+          <a href="dashboard.html">Dashboard</a><span class="breadcrumb-sep">/</span><span>Berufe</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <a href="beruf-edit.html" class="btn btn-primary btn-sm">+ Neuer Beruf</a>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div>
+          <div class="page-title">💼 Berufsbilder</div>
+          <div class="page-subtitle">Alle Berufe der Freizeitbranche verwalten</div>
+        </div>
+        <a href="beruf-edit.html" class="btn btn-primary">+ Neuer Beruf</a>
+      </div>
+
+      <div class="card">
+        <div class="card-body-sm" style="border-bottom:1px solid var(--border)">
+          <div class="toolbar">
+            <div class="search-input-wrap">
+              <span class="icon">🔍</span>
+              <input type="text" id="search" class="search-input" placeholder="Beruf suchen …">
+            </div>
+            <select id="filter-cat" class="form-control" style="width:auto">
+              <option value="">Alle Bereiche</option>
+              <option value="parks">Freizeitparks</option>
+              <option value="events">Events</option>
+              <option value="tourismus">Tourismus</option>
+              <option value="sport">Sport</option>
+              <option value="wellness">Wellness</option>
+              <option value="kultur">Kultur</option>
+              <option value="gastronomie">Gastronomie</option>
+              <option value="natur">Natur</option>
+            </select>
+            <select id="filter-level" class="form-control" style="width:auto">
+              <option value="">Alle Level</option>
+              <option value="entry">Einstieg</option>
+              <option value="mid">Mid-Level</option>
+              <option value="senior">Senior</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table id="berufe-table">
+            <thead>
+              <tr>
+                <th style="width:40px"></th>
+                <th>Beruf</th>
+                <th>Bereich</th>
+                <th>Level</th>
+                <th>Gehalt</th>
+                <th>Skills</th>
+                <th>Zuletzt geändert</th>
+                <th style="width:120px">Aktionen</th>
+              </tr>
+            </thead>
+            <tbody id="berufe-body">
+              <tr><td colspan="8" style="text-align:center;padding:32px;color:var(--text-light)">Lädt …</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/admin.js"></script>
+<script>
+let allBerufe = [];
+
+const LEVEL_LABELS = { entry: 'Einstieg', mid: 'Mid-Level', senior: 'Senior' };
+const LEVEL_COLORS = { entry: 'green', mid: 'gold', senior: 'navy' };
+const CAT_LABELS   = { parks:'Freizeitparks', events:'Events', tourismus:'Tourismus', sport:'Sport', wellness:'Wellness', kultur:'Kultur', gastronomie:'Gastronomie', natur:'Natur' };
+
+function renderTable(data) {
+  const tbody = document.getElementById('berufe-body');
+  if (!data.length) {
+    tbody.innerHTML = `<tr><td colspan="8"><div class="empty-state"><div class="empty-state-icon">💼</div><h3>Keine Berufe gefunden</h3><p>Erstelle deinen ersten Beruf.</p></div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = data.map(b => `
+    <tr>
+      <td style="font-size:1.5rem;text-align:center">${esc(b.emoji||'💼')}</td>
+      <td><div style="font-weight:600;font-size:0.9rem">${esc(b.title)}</div>
+          ${b.image ? `<span style="font-size:0.75rem;color:var(--green)">📷 Foto</span>` : ''}</td>
+      <td><span class="tag tag-navy">${esc(CAT_LABELS[b.category]||b.category||'–')}</span></td>
+      <td><span class="tag tag-${LEVEL_COLORS[b.level]||'navy'}"><span class="level-dot"></span>${esc(LEVEL_LABELS[b.level]||b.level||'–')}</span></td>
+      <td style="font-size:0.85rem;white-space:nowrap">${b.salary_min ? `${(b.salary_min/1000).toFixed(0)}k – ${(b.salary_max/1000).toFixed(0)}k €` : '–'}</td>
+      <td style="font-size:0.82rem;color:var(--text-light)">${(b.skills||[]).length} Skills</td>
+      <td style="font-size:0.78rem;color:var(--text-light)">${b.updatedAt ? new Date(b.updatedAt).toLocaleDateString('de-DE') : '–'}</td>
+      <td>
+        <div class="td-actions">
+          <a href="beruf-edit.html?id=${b.id}" class="btn btn-ghost btn-sm">✏️ Edit</a>
+          <button class="btn btn-danger btn-icon" onclick="deleteBeruf('${b.id}','${esc(b.title)}')" title="Löschen">🗑</button>
+        </div>
+      </td>
+    </tr>`).join('');
+}
+
+function filterBerufe() {
+  const q     = document.getElementById('search').value.toLowerCase();
+  const cat   = document.getElementById('filter-cat').value;
+  const level = document.getElementById('filter-level').value;
+  renderTable(allBerufe.filter(b =>
+    (!q   || b.title?.toLowerCase().includes(q) || b.description?.toLowerCase().includes(q)) &&
+    (!cat   || b.category === cat) &&
+    (!level || b.level === level)
+  ));
+}
+
+async function deleteBeruf(id, name) {
+  confirm(`Beruf „${name}" wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.`, async () => {
+    try {
+      await apiDelete(`/berufe/${id}`);
+      allBerufe = allBerufe.filter(b => b.id !== id);
+      filterBerufe();
+      toast(`„${name}" wurde gelöscht.`);
+    } catch(e) { toast(e.message, 'error'); }
+  });
+}
+
+(async () => {
+  await checkAuth();
+  initSidebarActive();
+  try {
+    allBerufe = await apiGet('/berufe');
+    renderTable(allBerufe);
+  } catch(e) { toast(e.message, 'error'); }
+
+  document.getElementById('search').addEventListener('input', filterBerufe);
+  document.getElementById('filter-cat').addEventListener('change', filterBerufe);
+  document.getElementById('filter-level').addEventListener('change', filterBerufe);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ausbildungsweg bearbeiten – FreizeitKarriere Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="sidebar-logo-icon">🎡</div><div class="sidebar-logo-text">Freizeit<span>Karriere</span></div></div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Navigation</div>
+      <a href="dashboard.html"  class="sidebar-link"><div class="link-icon">📊</div>Dashboard</a>
+      <a href="berufe.html"     class="sidebar-link"><div class="link-icon">💼</div>Berufe</a>
+      <a href="geschichten.html"class="sidebar-link"><div class="link-icon">👥</div>Geschichten</a>
+      <a href="ausbildung.html" class="sidebar-link active"><div class="link-icon">🎓</div>Ausbildung</a>
+      <a href="tags.html"       class="sidebar-link"><div class="link-icon">🏷️</div>Tags</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user"><div class="sidebar-avatar">S</div><div class="sidebar-user-name">StefanBurian</div></div>
+      <button class="btn-logout btn">🚪 Abmelden</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="breadcrumb">
+          <a href="dashboard.html">Dashboard</a><span class="breadcrumb-sep">/</span>
+          <a href="ausbildung.html">Ausbildung</a><span class="breadcrumb-sep">/</span>
+          <span id="bc-title">Neuer Weg</span>
+        </div>
+      </div>
+      <div class="topbar-right"><button id="btn-save" class="btn btn-primary">💾 Speichern</button></div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div>
+          <div class="page-title" id="page-title">Neuen Ausbildungsweg anlegen</div>
+          <div class="page-subtitle">Ausbildung, Studium oder Weiterbildung erfassen</div>
+        </div>
+        <div style="display:flex;gap:10px">
+          <a href="ausbildung.html" class="btn btn-ghost">↩ Zurück</a>
+          <button id="btn-save2" class="btn btn-primary">💾 Speichern</button>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:start">
+        <!-- Left -->
+        <div style="display:flex;flex-direction:column;gap:16px">
+
+          <div class="card">
+            <div class="card-header"><span class="card-title">📋 Basisinformationen</span></div>
+            <div class="card-body">
+              <div class="form-grid">
+                <div class="form-group span-2">
+                  <label>Bezeichnung <span class="required">*</span></label>
+                  <input id="f-title" type="text" class="form-control" placeholder="z.B. Veranstaltungskaufmann/-frau">
+                </div>
+                <div class="form-group">
+                  <label>Emoji</label>
+                  <input id="f-emoji" type="text" class="form-control" placeholder="🎪" maxlength="4">
+                </div>
+                <div class="form-group">
+                  <label>Typ <span class="required">*</span></label>
+                  <select id="f-type" class="form-control">
+                    <option value="ausbildung">🎪 Duale Ausbildung</option>
+                    <option value="studium">🏛️ Studium (B.A./M.A.)</option>
+                    <option value="weiterbildung">📚 Weiterbildung / Zertifikat</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Dauer</label>
+                  <input id="f-duration" type="text" class="form-control" placeholder="z.B. 3 Jahre">
+                </div>
+                <div class="form-group">
+                  <label>Ausbildungsgehalt Min (€)</label>
+                  <input id="f-salary-min" type="number" class="form-control" placeholder="600">
+                </div>
+                <div class="form-group">
+                  <label>Ausbildungsgehalt Max (€)</label>
+                  <input id="f-salary-max" type="number" class="form-control" placeholder="900">
+                </div>
+                <div class="form-group">
+                  <label>Einheit</label>
+                  <select id="f-salary-unit" class="form-control">
+                    <option value="Monat">Pro Monat</option>
+                    <option value="Jahr">Pro Jahr</option>
+                    <option value="">Keine Angabe</option>
+                  </select>
+                </div>
+                <div class="form-group span-2">
+                  <label>Beschreibung <span class="required">*</span></label>
+                  <textarea id="f-description" class="form-control" placeholder="Was lernt man in dieser Ausbildung? Welche Tätigkeiten sind typisch?"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><span class="card-title">🏫 Institutionen & Arbeitgeber</span></div>
+            <div class="card-body">
+              <label style="font-size:0.82rem;font-weight:600;color:var(--text-mid);display:block;margin-bottom:8px">Ausbildende Körperschaften / Hochschulen</label>
+              <div class="dyn-list" id="institutions-list"></div>
+              <button type="button" class="btn-add-item" id="institutions-list-add">+ Institution hinzufügen</button>
+
+              <div style="margin-top:20px">
+                <label style="font-size:0.82rem;font-weight:600;color:var(--text-mid);display:block;margin-bottom:8px">Typische Arbeitgeber</label>
+                <div class="dyn-list" id="employers-list"></div>
+                <button type="button" class="btn-add-item" id="employers-list-add">+ Arbeitgeber hinzufügen</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><span class="card-title">💼 Verwandte Berufe</span></div>
+            <div class="card-body">
+              <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:12px">Welche Berufe führt dieser Ausbildungsweg?</p>
+              <div id="related-jobs-select" class="tag-select-wrap"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="card">
+            <div class="card-header"><span class="card-title">🖼️ Foto</span></div>
+            <div class="card-body">
+              <div class="upload-zone" id="upload-zone" data-current="">
+                <input type="file" class="upload-input" accept="image/*">
+                <div class="upload-zone-icon">📷</div>
+                <div class="upload-zone-text">Foto hochladen</div>
+                <div class="upload-zone-hint">max. 8 MB</div>
+              </div>
+              <div id="upload-preview"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><span class="card-title">🏷️ Tags</span></div>
+            <div class="card-body">
+              <div id="tag-select" class="tag-select-wrap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/admin.js"></script>
+<script>
+let editId         = null;
+let uploadZone     = null;
+let tagSelector    = null;
+let jobSelector    = null;
+let institutionMgr = null;
+let employerMgr    = null;
+
+async function loadForm() {
+  await checkAuth();
+  initSidebarActive();
+
+  const [allTags, allBerufe] = await Promise.all([
+    apiGet('/tags').catch(()=>[]),
+    apiGet('/berufe').catch(()=>[])
+  ]);
+
+  editId = getParam('id');
+  let data = {};
+  if (editId) {
+    data = await apiGet(`/ausbildung/${editId}`).catch(()=>({}));
+    document.getElementById('page-title').textContent = `Bearbeiten: ${data.title}`;
+    document.getElementById('bc-title').textContent   = data.title;
+  }
+
+  const fields = {
+    'f-title':       data.title       || '',
+    'f-emoji':       data.emoji       || '',
+    'f-type':        data.type        || 'ausbildung',
+    'f-duration':    data.duration    || '',
+    'f-salary-min':  data.salary_min  || '',
+    'f-salary-max':  data.salary_max  || '',
+    'f-salary-unit': data.salary_unit || 'Monat',
+    'f-description': data.description || ''
+  };
+  Object.entries(fields).forEach(([id,val]) => { const el = document.getElementById(id); if (el) el.value = val; });
+
+  if (data.image) document.getElementById('upload-zone').dataset.current = data.image;
+  uploadZone     = initUploadZone('upload-zone', 'upload-preview');
+  tagSelector    = initTagSelect('tag-select', allTags, data.tags || []);
+  jobSelector    = initTagSelect('related-jobs-select', allBerufe.map(b => ({ id: b.id, name: b.emoji + ' ' + b.title })), data.related_jobs || []);
+  institutionMgr = initDynList('institutions-list', 'institutions-list-add', [{ key:'name', label:'Institution' }], (data.institutions||[]).map(n=>({name:n})));
+  employerMgr    = initDynList('employers-list',    'employers-list-add',    [{ key:'name', label:'Arbeitgeber' }], (data.typical_employers||[]).map(n=>({name:n})));
+}
+
+async function save() {
+  const title = document.getElementById('f-title').value.trim();
+  if (!title) { toast('Bitte einen Titel eingeben.', 'error'); return; }
+
+  const payload = {
+    title,
+    emoji:           document.getElementById('f-emoji').value.trim(),
+    type:            document.getElementById('f-type').value,
+    duration:        document.getElementById('f-duration').value.trim(),
+    salary_min:      parseInt(document.getElementById('f-salary-min').value) || 0,
+    salary_max:      parseInt(document.getElementById('f-salary-max').value) || 0,
+    salary_unit:     document.getElementById('f-salary-unit').value,
+    description:     document.getElementById('f-description').value.trim(),
+    institutions:    (institutionMgr?.getItems()||[]).map(i=>i.name).filter(Boolean),
+    typical_employers:(employerMgr?.getItems()||[]).map(i=>i.name).filter(Boolean),
+    related_jobs:    jobSelector?.getSelected() || [],
+    tags:            tagSelector?.getSelected() || [],
+    image:           uploadZone?.getUrl() || ''
+  };
+
+  try {
+    if (editId) {
+      await apiPut(`/ausbildung/${editId}`, payload);
+      toast('Gespeichert!');
+    } else {
+      const created = await apiPost('/ausbildung', payload);
+      toast('Erstellt!');
+      editId = created.id;
+      history.replaceState(null, '', `ausbildung-edit.html?id=${editId}`);
+    }
+  } catch(e) { toast(e.message, 'error'); }
+}
+
+document.getElementById('btn-save').addEventListener('click', save);
+document.getElementById('btn-save2').addEventListener('click', save);
+loadForm();
+</script>
+</body>
+</html>

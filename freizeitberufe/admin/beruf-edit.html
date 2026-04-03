@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beruf bearbeiten – FreizeitKarriere Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="sidebar-logo-icon">🎡</div><div class="sidebar-logo-text">Freizeit<span>Karriere</span></div></div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Navigation</div>
+      <a href="dashboard.html"  class="sidebar-link"><div class="link-icon">📊</div>Dashboard</a>
+      <a href="berufe.html"     class="sidebar-link active"><div class="link-icon">💼</div>Berufe</a>
+      <a href="geschichten.html"class="sidebar-link"><div class="link-icon">👥</div>Geschichten</a>
+      <a href="ausbildung.html" class="sidebar-link"><div class="link-icon">🎓</div>Ausbildung</a>
+      <a href="tags.html"       class="sidebar-link"><div class="link-icon">🏷️</div>Tags</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user"><div class="sidebar-avatar">S</div><div class="sidebar-user-name">StefanBurian</div></div>
+      <button class="btn-logout btn">🚪 Abmelden</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="breadcrumb">
+          <a href="dashboard.html">Dashboard</a><span class="breadcrumb-sep">/</span>
+          <a href="berufe.html">Berufe</a><span class="breadcrumb-sep">/</span>
+          <span id="bc-title">Neuer Beruf</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button id="btn-save" class="btn btn-primary">💾 Speichern</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div>
+          <div class="page-title" id="page-title">Neuer Beruf anlegen</div>
+          <div class="page-subtitle">Alle Felder ausfüllen – markierte (<span style="color:var(--coral)">*</span>) sind Pflicht</div>
+        </div>
+        <div style="display:flex;gap:10px">
+          <a href="berufe.html" class="btn btn-ghost">↩ Zurück</a>
+          <button id="btn-save2" class="btn btn-primary">💾 Speichern</button>
+        </div>
+      </div>
+
+      <div id="alert-box" style="display:none;margin-bottom:16px"></div>
+
+      <!-- Tabs -->
+      <div class="tab-list" data-tab-group="edit">
+        <button class="tab-btn active" data-tab="tab-basis">📋 Basisinfos</button>
+        <button class="tab-btn" data-tab="tab-skills">⚡ Skills</button>
+        <button class="tab-btn" data-tab="tab-aufgaben">📌 Aufgaben</button>
+        <button class="tab-btn" data-tab="tab-karriere">📈 Karrierepfad</button>
+        <button class="tab-btn" data-tab="tab-media">🖼️ Foto & Tags</button>
+      </div>
+
+      <!-- Tab: Basisinfos -->
+      <div class="tab-panel active" id="tab-basis">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-grid">
+              <div class="form-group span-2">
+                <label>Berufsbezeichnung <span class="required">*</span></label>
+                <input id="f-title" type="text" class="form-control" placeholder="z.B. Eventmanager/in">
+              </div>
+              <div class="form-group">
+                <label>Emoji / Icon <span class="required">*</span></label>
+                <input id="f-emoji" type="text" class="form-control" placeholder="🎪" maxlength="4">
+                <span class="form-hint">Ein passendes Emoji eingeben</span>
+              </div>
+              <div class="form-group">
+                <label>CSS Visual-Klasse</label>
+                <select id="f-visual" class="form-control">
+                  <option value="visual-event">Events (Lila-Orange)</option>
+                  <option value="visual-park">Parks (Blau)</option>
+                  <option value="visual-hotel">Hotel (Grün)</option>
+                  <option value="visual-sport">Sport (Rot-Orange)</option>
+                  <option value="visual-tourism">Tourismus (Türkis)</option>
+                  <option value="visual-wellness">Wellness (Lila)</option>
+                  <option value="visual-culture">Kultur (Rot)</option>
+                  <option value="visual-food">Gastronomie (Orange)</option>
+                  <option value="visual-nature">Natur (Grün)</option>
+                  <option value="visual-kids">Kids/Animation (Blau)</option>
+                  <option value="visual-show">Show (Pink)</option>
+                  <option value="visual-manage">Management (Grau)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Bereich / Kategorie <span class="required">*</span></label>
+                <select id="f-category" class="form-control">
+                  <option value="parks">Freizeitparks</option>
+                  <option value="events">Events & Shows</option>
+                  <option value="tourismus">Tourismus & Reise</option>
+                  <option value="sport">Sport & Fitness</option>
+                  <option value="wellness">Wellness & Spa</option>
+                  <option value="kultur">Kultur & Bildung</option>
+                  <option value="gastronomie">Gastronomie</option>
+                  <option value="natur">Natur & Outdoor</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Level <span class="required">*</span></label>
+                <select id="f-level" class="form-control">
+                  <option value="entry">◎ Einstieg</option>
+                  <option value="mid">⬡ Mid-Level</option>
+                  <option value="senior">★ Senior</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Gehalt Min (€/Jahr)</label>
+                <input id="f-salary-min" type="number" class="form-control" placeholder="35000" step="1000">
+              </div>
+              <div class="form-group">
+                <label>Gehalt Max (€/Jahr)</label>
+                <input id="f-salary-max" type="number" class="form-control" placeholder="60000" step="1000">
+              </div>
+              <div class="form-group span-2">
+                <label>Kurzbeschreibung <span class="required">*</span></label>
+                <input id="f-description" type="text" class="form-control" placeholder="Ein Satz, der den Beruf treffend beschreibt">
+              </div>
+              <div class="form-group span-2">
+                <label>Ausführliche Beschreibung</label>
+                <textarea id="f-long-description" class="form-control" style="min-height:120px" placeholder="Detaillierte Beschreibung des Berufsbilds …"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Arbeitszeiten</label>
+                <input id="f-work-hours" type="text" class="form-control" placeholder="z.B. Flexibel, Abende & Wochenenden">
+              </div>
+              <div class="form-group">
+                <label>Homeoffice-Möglichkeit</label>
+                <select id="f-home-office" class="form-control">
+                  <option value="Nein">Nein</option>
+                  <option value="Teilweise">Teilweise</option>
+                  <option value="Ja">Ja</option>
+                  <option value="Selten">Selten</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Ausbildung / Qualifikation</label>
+                <input id="f-training" type="text" class="form-control" placeholder="z.B. Studium oder IHK-Ausbildung">
+              </div>
+              <div class="form-group">
+                <label>Jobaussichten (1–5 Sterne)</label>
+                <input id="f-job-outlook" type="number" class="form-control" min="1" max="5" value="4">
+              </div>
+              <div class="form-group">
+                <label>Offene Stellen (Schätzung)</label>
+                <input id="f-open-positions" type="number" class="form-control" placeholder="1200">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Skills -->
+      <div class="tab-panel" id="tab-skills">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">⚡ Skills & Kompetenzen</span>
+            <span style="font-size:0.82rem;color:var(--text-light)">Schieberegler für Intensität (0–100%)</span>
+          </div>
+          <div class="card-body">
+            <div id="skills-container"></div>
+            <button type="button" class="btn-add-skill" id="skills-container-add">+ Skill hinzufügen</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Aufgaben -->
+      <div class="tab-panel" id="tab-aufgaben">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">📌 Typische Aufgaben</span>
+          </div>
+          <div class="card-body">
+            <div class="dyn-list" id="tasks-list"></div>
+            <button type="button" class="btn-add-item" id="tasks-list-add">+ Aufgabe hinzufügen</button>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="card-header"><span class="card-title">📍 Typische Einsatzorte</span></div>
+          <div class="card-body">
+            <div class="dyn-list" id="locations-list"></div>
+            <button type="button" class="btn-add-item" id="locations-list-add">+ Einsatzort hinzufügen</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Karrierepfad -->
+      <div class="tab-panel" id="tab-karriere">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">📈 Karrierepfad</span>
+            <span style="font-size:0.82rem;color:var(--text-light)">Stufen von Einstieg bis Top</span>
+          </div>
+          <div class="card-body">
+            <div class="dyn-list" id="career-list"></div>
+            <button type="button" class="btn-add-item" id="career-list-add">+ Karrierestufe hinzufügen</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Foto & Tags -->
+      <div class="tab-panel" id="tab-media">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div class="card">
+            <div class="card-header"><span class="card-title">🖼️ Berufsfoto</span></div>
+            <div class="card-body">
+              <div class="upload-zone" id="upload-zone" data-current="">
+                <input type="file" class="upload-input" accept="image/*">
+                <div class="upload-zone-icon">📷</div>
+                <div class="upload-zone-text">Foto hierher ziehen oder klicken</div>
+                <div class="upload-zone-hint">JPG, PNG, WebP · max. 8 MB</div>
+              </div>
+              <div id="upload-preview"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><span class="card-title">🏷️ Tags</span></div>
+            <div class="card-body">
+              <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:12px">Mehrfachauswahl möglich. Klicke auf einen Tag zum Auswählen.</p>
+              <div id="tag-select" class="tag-select-wrap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /page-body -->
+  </main>
+</div>
+
+<script src="js/admin.js"></script>
+<script>
+let editId       = null;
+let uploadZone   = null;
+let skillManager = null;
+let taskManager  = null;
+let locationMgr  = null;
+let careerMgr    = null;
+let tagSelector  = null;
+let allTags      = [];
+
+async function loadForm() {
+  await checkAuth();
+  initSidebarActive();
+  initTabs();
+  allTags = await apiGet('/tags').catch(() => []);
+
+  editId = getParam('id');
+  let data = {};
+
+  if (editId) {
+    data = await apiGet(`/berufe/${editId}`).catch(() => ({}));
+    document.getElementById('page-title').textContent = `Beruf bearbeiten: ${data.title}`;
+    document.getElementById('bc-title').textContent   = data.title;
+  }
+
+  // Fill basic fields
+  const fields = {
+    'f-title':          data.title || '',
+    'f-emoji':          data.emoji || '',
+    'f-visual':         data.visual_class || 'visual-event',
+    'f-category':       data.category || 'events',
+    'f-level':          data.level || 'mid',
+    'f-salary-min':     data.salary_min || '',
+    'f-salary-max':     data.salary_max || '',
+    'f-description':    data.description || '',
+    'f-long-description': data.long_description || '',
+    'f-work-hours':     data.work_hours || '',
+    'f-home-office':    data.home_office || 'Nein',
+    'f-training':       data.training || '',
+    'f-job-outlook':    data.job_outlook || 4,
+    'f-open-positions': data.open_positions || ''
+  };
+  Object.entries(fields).forEach(([id, val]) => {
+    const el = document.getElementById(id);
+    if (el) el.value = val;
+  });
+
+  // Upload zone
+  if (data.image) document.getElementById('upload-zone').dataset.current = data.image;
+  uploadZone = initUploadZone('upload-zone', 'upload-preview');
+
+  // Skills
+  skillManager = initSkillSliders('skills-container', data.skills || []);
+
+  // Tasks
+  taskManager = initDynList('tasks-list', 'tasks-list-add', [
+    { key: 'icon',  label: 'Icon (Emoji)', type: 'text' },
+    { key: 'title', label: 'Titel *',      type: 'text' },
+    { key: 'text',  label: 'Beschreibung', type: 'text' }
+  ], data.tasks || []);
+
+  // Locations
+  locationMgr = initDynList('locations-list', 'locations-list-add', [
+    { key: 'name', label: 'Einsatzort (z.B. Eventagenturen)', type: 'text' }
+  ], (data.locations || []).map(l => ({ name: l })));
+
+  // Career
+  careerMgr = initDynList('career-list', 'career-list-add', [
+    { key: 'title', label: 'Position',    type: 'text' },
+    { key: 'years', label: 'Zeitraum',    type: 'text' }
+  ], data.career_path || []);
+
+  // Tags
+  tagSelector = initTagSelect('tag-select', allTags, data.tags || []);
+}
+
+async function save() {
+  const title = document.getElementById('f-title').value.trim();
+  if (!title) { toast('Bitte einen Titel eingeben.', 'error'); return; }
+
+  const payload = {
+    title,
+    emoji:            document.getElementById('f-emoji').value.trim(),
+    visual_class:     document.getElementById('f-visual').value,
+    category:         document.getElementById('f-category').value,
+    level:            document.getElementById('f-level').value,
+    salary_min:       parseInt(document.getElementById('f-salary-min').value) || 0,
+    salary_max:       parseInt(document.getElementById('f-salary-max').value) || 0,
+    description:      document.getElementById('f-description').value.trim(),
+    long_description: document.getElementById('f-long-description').value.trim(),
+    work_hours:       document.getElementById('f-work-hours').value.trim(),
+    home_office:      document.getElementById('f-home-office').value,
+    training:         document.getElementById('f-training').value.trim(),
+    job_outlook:      parseInt(document.getElementById('f-job-outlook').value) || 4,
+    open_positions:   parseInt(document.getElementById('f-open-positions').value) || 0,
+    image:            uploadZone?.getUrl() || '',
+    skills:           skillManager?.getSkills() || [],
+    tasks:            taskManager?.getItems() || [],
+    locations:        (locationMgr?.getItems() || []).map(i => i.name).filter(Boolean),
+    career_path:      careerMgr?.getItems() || [],
+    tags:             tagSelector?.getSelected() || []
+  };
+
+  try {
+    if (editId) {
+      await apiPut(`/berufe/${editId}`, payload);
+      toast('Beruf gespeichert!');
+    } else {
+      const created = await apiPost('/berufe', payload);
+      toast('Beruf erstellt!');
+      editId = created.id;
+      history.replaceState(null, '', `beruf-edit.html?id=${editId}`);
+      document.getElementById('page-title').textContent = `Beruf bearbeiten: ${title}`;
+    }
+  } catch(e) { toast(e.message, 'error'); }
+}
+
+document.getElementById('btn-save').addEventListener('click', save);
+document.getElementById('btn-save2').addEventListener('click', save);
+
+loadForm();
+</script>
+</body>
+</html>
