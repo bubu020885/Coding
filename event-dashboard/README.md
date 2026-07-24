@@ -38,6 +38,9 @@ Der Workflow [`../.github/workflows/deploy-dashboard.yml`](../.github/workflows/
 4. Die Live-URL erscheint danach im Workflow-Log/Deployment (üblicherweise
    `https://<github-user>.github.io/<repo-name>/`).
 
+**Status:** Pages ist als „GitHub Actions“-Quelle aktiviert. Live-URL für dieses Repo:
+`https://bubu020885.github.io/Coding/`.
+
 > **Wichtig:** GitHub führt geplante (`schedule`-)Workflows nur auf dem **Default-Branch**
 > des Repos aus. Solange dieser Workflow nur auf einem Feature-Branch liegt, funktioniert
 > `workflow_dispatch` (manueller Klick) und `push` sofort – die automatische 10-Minuten-
