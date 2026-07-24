@@ -1,0 +1,19 @@
+{
+  "name": "event-dashboard",
+  "version": "1.0.0",
+  "description": "Vollbild-Dashboard (3 Spalten: Heute/Morgen/Übermorgen) fuer einen ICS-Event-Feed",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build:static": "node scripts/build-static.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "node-ical": "^0.27.1"
+  }
+}
