@@ -1,0 +1,62 @@
+name: Deploy Event Dashboard
+
+on:
+  push:
+    paths:
+      - 'event-dashboard/**'
+      - '.github/workflows/deploy-dashboard.yml'
+  # Note: GitHub only fires "schedule" for workflow files on the repository's
+  # default branch, so the 10-minute auto-refresh only becomes active once
+  # this workflow is merged into the default branch.
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: event-dashboard
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+
+      # Fetches the ICS feed and writes dist/. Fails the job (no deploy) if
+      # the feed can't be reached, so the last known-good Pages build stays
+      # live instead of being replaced by an empty/broken state.
+      - run: node scripts/build-static.js
+        env:
+          ICS_FEED_URL: ${{ vars.ICS_FEED_URL }}
+          TIMEZONE: ${{ vars.TIMEZONE }}
+          REFRESH_INTERVAL_MS: ${{ vars.REFRESH_INTERVAL_MS }}
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: event-dashboard/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
