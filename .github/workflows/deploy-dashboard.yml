@@ -1,9 +1,10 @@
-name: Deploy Event Dashboard
+name: Deploy Pages
 
 on:
   push:
     paths:
       - 'event-dashboard/**'
+      - 'leisuretools/**'
       - '.github/workflows/deploy-dashboard.yml'
   # Note: GitHub only fires "schedule" for workflow files on the repository's
   # default branch, so the 10-minute auto-refresh only becomes active once
@@ -45,11 +46,22 @@ jobs:
           TIMEZONE: ${{ vars.TIMEZONE }}
           REFRESH_INTERVAL_MS: ${{ vars.REFRESH_INTERVAL_MS }}
 
+      # Combines the dashboard build (site root) with the static
+      # leisuretools pages (served under /leisuretools/) into one artifact,
+      # since a repo can only publish a single Pages site.
+      - name: Assemble Pages site
+        working-directory: ${{ github.workspace }}
+        run: |
+          mkdir -p _site
+          cp -r event-dashboard/dist/. _site/
+          mkdir -p _site/leisuretools
+          cp -r leisuretools/. _site/leisuretools/
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: event-dashboard/dist
+          path: _site
 
   deploy:
     needs: build
